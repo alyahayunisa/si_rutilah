@@ -1,0 +1,90 @@
+{% load static %}
+
+
+<!--APP-SIDEBAR-->
+<div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+<aside class="app-sidebar">
+	<div class="side-header">
+		<a class="header-brand1" href="#">
+			<img src="{% static 'html/assets/images/brand/logo 2.jpeg' %}"
+				class="header-brand-img desktop-logo" alt="logo">
+			<img src="{% static 'html/assets/images/brand/logo 2.jpeg'%}"
+				class="header-brand-img toggle-logo" alt="logo">
+			<img src="{% static 'html/assets/images/brand/logo 2.jpeg'%}"
+				class="header-brand-img light-logo" alt="logo">
+			<img src="{% static 'html/assets/images/brand/logo 2.jpeg'%}"
+				class="header-brand-img light-logo1" alt="logo">
+		</a><!-- LOGO -->
+	</div>
+	<ul class="side-menu">
+		<li>
+			<h3>Main</h3>
+		</li>
+		<li class="slide">
+			<a class="side-menu__item" data-bs-toggle="slide" href="{% url 'rtlh_admin:dashboard'%}"><i
+					class="side-menu__icon fe fe-home"></i><span
+					class="side-menu__label">Dashboard</span></a>
+		</li>
+		
+		<li class="slide">
+			<a class="side-menu__item" data-bs-toggle="slide" href="#"><i
+					class="side-menu__icon fe fe-clipboard"></i><span
+					class="side-menu__label">Master</span><i class="angle fa fa-angle-right"></i></a>
+			<ul class="slide-menu">
+				<li><a href="{% url 'rtlh_admin:user'%}" class="slide-item"> User</a></li>
+				<li><a href="{% url 'rtlh_admin:kriteria'%}" class="slide-item"> Kriteria</a></li>
+				<li><a href="{% url 'rtlh_admin:keterangan'%}" class="slide-item"> Keterangan</a></li>
+			</ul>
+		</li>
+		
+		<li class="slide">
+			<a class="side-menu__item" data-bs-toggle="slide" href="#"><i
+					class="side-menu__icon fe fe-clipboard"></i><span
+					class="side-menu__label">Data</span><i class="angle fa fa-angle-right"></i></a>
+			<ul class="slide-menu">
+				<li><a href="{% url 'rtlh_admin:formrmh'%}" class="slide-item"> Data Pemilik Rumah</a></li>
+				<li><a href="{% url 'rtlh_admin:rtlh'%}" class="slide-item"> Data RTLH</a></li>
+			</ul>
+		</li>
+		
+		<li class="slide">
+			<a class="side-menu__item" data-bs-toggle="slide" href="#"><i
+					class="side-menu__icon fe fe-clipboard"></i><span
+					class="side-menu__label">Permohonan</span><i class="angle fa fa-angle-right"></i></a>
+			<ul class="slide-menu">
+				<li><a href="{% url 'rtlh_admin:bantuan'%}" class="slide-item"> Data Permohonan Bantuan</a></li>
+			</ul>
+		</li>
+		<li class="slide">
+			<a class="side-menu__item" data-bs-toggle="slide" href="#"><i
+					class="side-menu__icon fe fe-clipboard"></i><span
+					class="side-menu__label">Verifikasi</span><i class="angle fa fa-angle-right"></i></a>
+			<ul class="slide-menu">
+				<li><a href="{% url 'rtlh_admin:verifikasi'%}" class="slide-item"> Data Verifikasi Bantuan</a></li>
+			</ul>
+		</li>
+		<li class="slide">
+			<a class="side-menu__item" data-bs-toggle="slide" href="#"><i
+					class="side-menu__icon fe fe-clipboard"></i><span
+					class="side-menu__label">Informasi</span><i class="angle fa fa-angle-right"></i></a>
+			<ul class="slide-menu">
+				<li><a href="{% url 'rtlh_admin:informasi'%}" class="slide-item"> Data Informasi</a></li>
+			</ul>
+		</li>
+		
+		<li>
+			<h3>Setting</h3>
+		</li>
+		<li class="slide">
+			<a class="side-menu__item" data-bs-toggle="slide" href="#"><i
+					class="side-menu__icon fe fe-settings"></i><span class="side-menu__label">Setting</span><i class="angle fa fa-angle-right"></i></a>
+			<ul class="slide-menu">
+				<li><a href="login.html" class="slide-item"> Login</a></li>
+				<li><a href="register.html" class="slide-item"> Register</a></li>
+				<li><a href="forgot-password.html" class="slide-item"> Forgot Password</a></li>
+				<li><a href="lockscreen.html" class="slide-item"> Lock screen</a></li>
+			</ul>
+		</li>
+	</ul>
+</aside>
+<!--/APP-SIDEBAR-->

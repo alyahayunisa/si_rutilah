@@ -1,0 +1,178 @@
+{% load static %}
+{% include 'admin/layouts/header.html' %}
+{% include 'admin/layouts/sidebar.html' %}
+
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+	<!-- META DATA -->
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Zanex – Bootstrap  Admin & Dashboard Template">
+	<meta name="author" content="Spruko Technologies Private Limited">
+	<meta name="keywords"
+		content="admin, dashboard, dashboard ui, admin dashboard template, admin panel dashboard, admin panel html, admin panel html template, admin panel template, admin ui templates, administrative templates, best admin dashboard, best admin templates, bootstrap 4 admin template, bootstrap admin dashboard, bootstrap admin panel, html css admin templates, html5 admin template, premium bootstrap templates, responsive admin template, template admin bootstrap 4, themeforest html">
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'html/assets/images/brand/favicon.ico' %}" />
+
+	<!-- TITLE -->
+	<title>Zanex – Bootstrap Admin & Dashboard Template </title>
+
+	<!-- BOOTSTRAP CSS -->
+	<link href="{% static 'html/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+
+	<!-- STYLE CSS -->
+	<link href="{% static 'html/assets/css/style.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/css/dark-style.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/css/skin-modes.css' %}" rel="stylesheet" />
+
+	<!-- SIDE-MENU CSS -->
+	<link href="{% static 'html/assets/css/sidemenu.css' %}" rel="stylesheet" id="sidemenu-theme">
+
+	<!--C3 CHARTS CSS -->
+	<link href="{% static 'html/assets/plugins/charts-c3/c3-chart.css' %}" rel="stylesheet" />
+
+	<!-- P-scroll bar css-->
+	<link href="{% static 'html/assets/plugins/p-scroll/perfect-scrollbar.css' %}" rel="stylesheet" />
+
+	<!--- FONT-ICONS CSS -->
+	<link href="{% static 'html/assets/css/icons.css' %}" rel="stylesheet" />
+
+	<!-- SIDEBAR CSS -->
+	<link href="{% static 'html/assets/plugins/sidebar/sidebar.css' %}" rel="stylesheet">
+
+	<!-- SELECT2 CSS -->
+	<link href="{% static 'html/assets/plugins/select2/select2.min.css' %}" rel="stylesheet" />
+
+	<!-- INTERNAL Data table css -->
+	<link href="{% static 'html/assets/plugins/datatable/css/dataTables.bootstrap5.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/plugins/datatable/responsive.bootstrap5.css' %}" rel="stylesheet" />
+
+	<!-- COLOR SKIN CSS -->
+	<link id="theme" rel="stylesheet" type="text/css" media="all" href="{% static 'html/assets/colors/color1.css' %}" />
+
+</head>
+
+<body class="app sidebar-mini">
+
+	<!-- GLOBAL-LOADER -->
+	<div id="global-loader">
+		<img src="{% static 'assets/images/loader.svg' %}" class="loader-img" alt="Loader">
+	</div>
+	<!-- /GLOBAL-LOADER -->
+
+	<!-- PAGE -->
+	<div class="page">
+		<class="page-main">
+			<!--app-content open-->
+			<div class="app-content">
+				<div class="side-app">
+
+					<!-- PAGE-HEADER -->
+					<div class="page-header">
+						<div>
+							<h1 class="page-title">Data Permohonan Bantuan</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">Forms</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Data Permohonan Bantuan</li>
+							</ol>
+						</div>
+					</div>
+					<!-- PAGE-HEADER END -->
+
+
+					<form method="post" action="{% url 'rtlh_admin:tambahbantuan' %}" enctype="multipart/form-data" >
+						{% csrf_token %}
+						<div class="col-lg-12 col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Tambah Data Permohonan</h3>
+								</div>
+								<div class="card-body pt-2">
+									<div class="form-group">
+										<label class="form-label">Nama KK</label>
+										<select name="nama_kk" class="form-control" aria-describedby="nama_kkHelp">
+											<option value="">Select Nama KK</option> <!-- Placeholder option -->
+											{% for dt_daftar in data_daftar %}
+												<option value="{{ dt_daftar.id }}">
+													{{ dt_daftar.nama_kk }}
+												</option>
+											{% endfor %}
+										</select>
+									</div>
+									<div class="form-group">
+										<label class="form-label">Upload Foto KTP</label>
+										<input type="file" class="form-control" name="img_ktp" accept="image/*">
+									</div>
+								
+									<div class="form-group">
+										<label class="form-label">Upload Foto KK</label>
+										<input type="file" class="form-control" name="img_kk" accept="image/*">
+									</div>
+								
+									<div class="form-group">
+										<label class="form-label">Upload Foto Rumah</label>
+										<input type="file" class="form-control" name="img_rumah" accept="image/*">
+									</div>
+								
+									<div class="form-group">
+										<label class="form-label">Upload Foto Sertifikat</label>
+										<input type="file" class="form-control" name="img_sertifikat" accept="image/*">
+									</div>
+									<button type="submit" class="btn btn-primary mt-4 mb-0">Submit</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+	</div>
+	</class>
+	</div>
+
+
+	</div>
+
+
+	<!-- BACK-TO-TOP -->
+	<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+	<!-- JQUERY JS -->
+	<script src="{% static 'html/assets/js/jquery.min.js' %}"></script>
+
+	<!-- BOOTSTRAP JS -->
+	<script src="{% static 'html/assets/plugins/bootstrap/js/popper.min.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+	<!-- CHARTJS CHART JS-->
+	<script src="{% static 'html/assets/plugins/chart/Chart.bundle.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/chart/utils.js' %}"></script>
+
+	<!-- C3 CHART JS -->
+	<script src="{% static 'html/assets/plugins/charts-c3/d3.v5.min.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/charts-c3/c3-chart.js' %}"></script>
+
+	<!-- INPUT MASK JS-->
+	<script src="{% static 'html/assets/plugins/input-mask/jquery.mask.min.js' %}"></script>
+
+	<!-- SIDE-MENU JS-->
+	<script src="{% static 'html/assets/plugins/sidemenu/sidemenu.js' %}"></script>
+
+	<!-- SIDEBAR JS -->
+	<script src="{% static 'html/assets/plugins/sidebar/sidebar.js' %}"></script>
+
+	<!-- Perfect SCROLLBAR JS-->
+	<script src="{% static 'html/assets/plugins/p-scroll/perfect-scrollbar.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/p-scroll/pscroll.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/p-scroll/pscroll-1.js' %}"></script>
+
+	<!-- CUSTOM JS -->
+	<script src="{% static 'html/assets/js/custom.js' %}"></script>
+
+</body>
+
+</html>
