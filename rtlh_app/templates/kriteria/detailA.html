@@ -1,0 +1,202 @@
+{% load static %}
+{% include 'layouts2/navbar.html' %}
+
+<style>
+    .text-color-black {
+        color : black !important;
+    }
+    .position-relative {
+        position: relative;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Overlay dengan transparansi hitam */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        border-radius: 5px;
+    }
+
+    .position-relative:hover .overlay {
+        opacity: 1;
+    }
+
+    .overlay span {
+        font-size: 30px; /* Ukuran teks sesuai kebutuhan */
+    }
+    .gallery-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .gallery-images {
+        display: flex;
+        transition: transform 0.3s ease;
+    }
+    .gallery-separator {
+        border: none;
+        border-top: 2px solid #ccc; /* Ubah warna dan ketebalan garis sesuai kebutuhan */
+        margin-bottom: 20px; /* Jarak antara garis dengan galeri */
+        width: 100%;
+    }
+    .gallery-images img {
+        width: 300px;
+        height: auto;
+        margin: 0 5px;
+        border-radius: 5px;
+    }
+
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .nav-button.left {
+        left: 0;
+    }
+
+    .nav-button.right {
+        right: 0;
+    }
+
+
+</style>
+
+<section>
+    <div class="row text-center text-md-start py-2 header-section">
+        <div class="col p-relative bottom-5">
+            <ul class="breadcrumb d-block text-4 opacity-8 text-default mb-0">
+                <li><a href="{% url 'rtlh_app:beranda' %}" class="text-decoration-none text-default">Beranda</a></li>
+                <li><a href="{% url 'rtlh_app:kriteria' %}" class="active">Kriteria</li>
+            </ul>
+            <h1 class="font-weight-bold text-color-black text-10 mt-1 mb-0">Detail Kriteria Tipe A</h1>
+        </div>
+    </div>
+</section>
+<section class="section bg-transparent position-relative border-0 m-0 p-0">
+    <div class="container custom-container-background custom-z-index-1 py-5">
+        <div class="row position-relative z-index-1 pt-5-5">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+
+                <article class="mb-5">
+                    <div class="card bg-transparent border-0">
+                        <div class="card-body p-0 z-index-1">
+                            <a href="demo-insurance-blog-detail.html" data-cursor-effect-hover="plus">
+                                <img class="card-img-top rounded-0 mb-2" src="{% static 'assets/img/kriteria/tipe a.jpeg' %}" alt="Card Image">
+                            </a>
+                            <div class="card-body p-0">
+                                <h4 class="card-title text-5 font-weight-bold pb-1 mb-2"><a class="text-color-dark text-color-hover-black text-decoration-none" href="demo-insurance-blog-detail.html">Kriteria Tipe A</a></h4>
+                                <div class="description">
+                                   
+                                        <li> Jenis dinding tembok</li>
+                                        <li> Jenis penutup atap galvalum</li>
+                                        <li> Jenis lantai keramik</li>
+                                        <li> Pencahayaan baik</li>
+                                        <li> Air bersih cukup dan sanitasi yang memadahi</li>
+                                        <li> Ruang yang cukup dan teratur</li>
+                                        <li> Kebersihan dan pemeliharaan yang baik</li>
+                                        <li> Lingkungan yang nyaman dan aman</li>
+                                        <li> Dapat diakses semua orang</li>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            <div class="col-lg-4 pt-4 pt-lg-0">
+                <aside class="sidebar">
+                        <h3 class="text-color-dark text-capitalize font-weight-bold text-5 m-0 mb-3">Tipe - Tipe Lainnya</h3>
+                        <div class="list-group list-group-flush">
+                            <a href="{% url 'rtlh_app:detailB' %}" class="list-group-item text-decoration-none p-0">
+                                <div class="position-relative">
+                                    <img class="img-fluid rounded" src="{% static 'assets/img/kriteria/tipe b.jpeg' %}" alt="Tipe B">
+                                    <div class="overlay d-flex align-items-center justify-content-center">
+                                        <span class="text-white font-weight-bold">TIPE B</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="{% url 'rtlh_app:detailC' %}" class="list-group-item text-decoration-none p-0">
+                                <div class="position-relative">
+                                    <img class="img-fluid rounded" src="{% static 'assets/img/kriteria/tipe c.jpeg' %}" alt="Tipe C">
+                                    <div class="overlay d-flex align-items-center justify-content-center">
+                                        <span class="text-white font-weight-bold">TIPE C</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="{% url 'rtlh_app:detailD' %}" class="list-group-item text-decoration-none p-0">
+                                <div class="position-relative">
+                                    <img class="img-fluid rounded" src="{% static 'assets/img/kriteria/tipe d.jpeg' %}" alt="Tipe D">
+                                    <div class="overlay d-flex align-items-center justify-content-center">
+                                        <span class="text-white font-weight-bold">TIPE D</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="{% url 'rtlh_app:detailE' %}" class="list-group-item text-decoration-none p-0">
+                                <div class="position-relative">
+                                    <img class="img-fluid rounded" src="{% static 'assets/img/kriteria/tipe e.jpeg' %}" alt="Tipe E">
+                                    <div class="overlay d-flex align-items-center justify-content-center">
+                                        <span class="text-white font-weight-bold">TIPE E</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="{% url 'rtlh_app:detailF' %}" class="list-group-item text-decoration-none p-0">
+                                <div class="position-relative">
+                                    <img class="img-fluid rounded" src="{% static 'assets/img/kriteria/tipe f.jpeg' %}" alt="Tipe F">
+                                    <div class="overlay d-flex align-items-center justify-content-center">
+                                        <span class="text-white font-weight-bold">TIPE F</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                </aside>
+            </div>
+        </div>
+
+        <hr class="gallery-separator"> <!-- Garis pembatas -->
+        <h3 class="font-weight-bold text-color-dark text-6 mb-4">Galeri</h3>
+        <div class="container py-4 gallery-container">
+            <button class="nav-button left" onclick="moveGallery(-1)">&#10094;</button>
+            <div class = row>
+                <div class="gallery-images" id="galleryImages">
+                    <img src="{% static 'assets/img/gallery/genteng keramik.jpg' %}" class="img-fluid rounded" alt="foto 1">
+                    <img src="{% static 'assets/img/gallery/tembok_batu-bata.jpg' %}" class="img-fluid rounded" alt="Galeri 2">
+                    <img src="{% static 'assets/img/gallery/bangun_rumah2.webp' %}" class="img-fluid rounded" alt="Galeri 3">
+                    <img src="{% static 'assets/img/gallery/bangun_rumah1.jpeg' %}" class="img-fluid rounded" alt="Galeri 4">
+                </div>
+            </div>
+            <button class="nav-button right" onclick="moveGallery(1)">&#10095;</button>
+        </div>
+
+        <script>
+            let currentIndex = 0;
+        
+            function moveGallery(direction) {
+                const gallery = document.getElementById('galleryImages');
+                const images = gallery.querySelectorAll('img');
+                const totalImages = images.length;
+        
+                currentIndex = (currentIndex + direction + totalImages) % totalImages;
+                gallery.style.transform = `translateX(-${currentIndex * 300}px)`;
+            }
+        </script>
+        
+    </div>
+</section>
+
+{% include 'layouts2/footer.html' %}

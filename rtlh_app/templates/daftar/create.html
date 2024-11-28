@@ -1,0 +1,49 @@
+{% include 'layouts2/navbar.html' %}
+
+{% block main %}
+<section class="mt-2" style="height: 100vh;">
+    <div class="container">
+        <form method="post" action="{% if edit %}{% url 'rtlh_app:edit_daftar' data_rumah.id %}{% else %}{% url 'rtlh_app:tambah_daftar' %}{% endif %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">No KK</label>
+                <input type="text" value="{{ data_daftar.no_kk }}" class="form-control" name="no_kk" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">NIK</label>
+                <input type="text" value="{{ data_daftar.nik }}" class="form-control" name="nik" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Nama KK</label>
+                <input type="text" value="{{ data_daftar.nama_kk }}" class="form-control" name="nama_kk" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Alamat</label>
+                <input type="text" value="{{ data_daftar.alamat }}" class="form-control" name="alamat" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Pekerjaan</label>
+                <input type="text" value="{{ data_daftar.pekerjaan }}" class="form-control" name="pekerjaan" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Keterangan</label>
+                <input type="text" value="{{ data_daftar.keterangan }}" class="form-control" name="keterangan" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Kriteria</label>
+                <input type="text" value="{{ data_daftar.kriteria }}" class="form-control" name="kriteria" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Status Pengajuan</label>
+                <input type="text" value="{{ data_daftar.status_pengajuan }}" class="form-control" name="status_pengajuan" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="{% url 'rtlh_app:tambah_daftar' %}" class="btn btn-danger">pulang</a>
+        </form>
+    </div>
+</section>
+{% endblock main %}

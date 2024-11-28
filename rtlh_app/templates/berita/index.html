@@ -1,0 +1,26 @@
+{% extends 'layouts2/base_layouts.html' %}
+{% block main %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nama Pemilik</th>
+        <th scope="col">Keterangan</th>
+        <th scope="col">Kriteria</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for dt_berita in data_berita %}
+      <tr>
+        <th scope="row">{% forloop.counter %}</th>
+        <td>{{ dt_berita.nama_pemilik }}</td>
+        <td>{{ dt_berita.keterangan }}</td>
+        <td>{{ dt_berita.kriteria }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock main %}
+
