@@ -22,5 +22,7 @@ urlpatterns = [
     path('kriteria_D/', kriteria_D.DetailKriteriaViews.as_view(), name = 'detailD'),
     path('kriteria_E/', kriteria_E.DetailKriteriaViews.as_view(), name = 'detailE'),
     path('kriteria_F/', kriteria_F.DetailKriteriaViews.as_view(), name = 'detailF'),
+    path('tampil/', tampil.TampilkanPeraturanViews, name='tampilkan_peraturan'),  # APP
+    
 ] 
 

@@ -91,7 +91,6 @@ class informasi(models.Model):
     def __str__(self):
         return self.judul
 
-
 ROLE_CHOICES = [
     ('admin', 'Admin'),
     ('posting', 'Posting'),

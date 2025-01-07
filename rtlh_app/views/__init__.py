@@ -11,3 +11,4 @@ from .kriteria_C import *
 from .kriteria_D import *
 from .kriteria_E import *
 from .kriteria_F import *
+from .tampil import *

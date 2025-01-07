@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import KontenPeraturanForm
+from .models import KontenPeraturan
 
 
 
@@ -16,3 +20,4 @@ def kriteria(request):
 
 def kontak(request):
     return render(request,'kontak.html')
+

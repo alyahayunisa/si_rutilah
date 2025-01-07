@@ -14,3 +14,11 @@ class data_rumah(models.Model):
     keterangan = models.CharField(max_length=300)
     kriteria = models.CharField(max_length=300)
     status_pengajuan = models.CharField(max_length=300)
+
+class KontenPeraturan(models.Model):
+    judul = models.CharField(max_length=255, verbose_name="Judul")
+    deskripsi = models.TextField(verbose_name="Deskripsi")
+    gambar = models.ImageField(upload_to='uploads/peraturan/', verbose_name="Gambar", blank=True, null=True)
+
+    def __str__(self):
+        return self.judul

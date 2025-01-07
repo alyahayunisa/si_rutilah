@@ -37,8 +37,7 @@ urlpatterns = [
     path('tambahinfo/', info.TambahInfoViews.as_view(), name = 'tambahinfo'),
     path('editinfo/<int:id_info>', info.EditInfoViews.as_view(), name = 'editinfo'),
     path('hapusinfo/<int:id_info>', info.HapusInfoViews.as_view(), name = 'hapusinfo'),
-   
-
+    path('admin/ubah-peraturan/', ubah.UbahPeraturanViews, name='ubah_peraturan'),
     
 ]
 
