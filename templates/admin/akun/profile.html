@@ -1,0 +1,198 @@
+{% load static %}
+{% include 'admin/layouts/header.html' %}
+{% include 'admin/layouts/sidebar.html' %}
+
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'html/assets/images/brand/favicon.ico' %}" />
+
+	<!-- TITLE -->
+	<title>SI_RUTILAH</title>
+
+	<!-- BOOTSTRAP CSS -->
+	<link href="{% static 'html/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+
+	<!-- STYLE CSS -->
+	<link href="{% static 'html/assets/css/style.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/css/dark-style.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/css/skin-modes.css' %}" rel="stylesheet" />
+
+	<!-- SIDE-MENU CSS -->
+	<link href="{% static 'html/assets/css/sidemenu.css' %}" rel="stylesheet" id="sidemenu-theme">
+
+	<!--C3 CHARTS CSS -->
+	<link href="{% static 'html/assets/plugins/charts-c3/c3-chart.css' %}" rel="stylesheet" />
+
+	<!-- P-scroll bar css-->
+	<link href="{% static 'html/assets/plugins/p-scroll/perfect-scrollbar.css' %}" rel="stylesheet" />
+
+	<!--- FONT-ICONS CSS -->
+	<link href="{% static 'html/assets/css/icons.css' %}" rel="stylesheet" />
+
+	<!-- SIDEBAR CSS -->
+	<link href="{% static 'html/assets/plugins/sidebar/sidebar.css' %}" rel="stylesheet">
+
+	<!-- SELECT2 CSS -->
+	<link href="{% static 'html/assets/plugins/select2/select2.min.css' %}" rel="stylesheet" />
+
+	<!-- INTERNAL Data table css -->
+	<link href="{% static 'html/assets/plugins/datatable/css/dataTables.bootstrap5.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/plugins/datatable/responsive.bootstrap5.css' %}" rel="stylesheet" />
+
+	<!-- COLOR SKIN CSS -->
+	<link id="theme" rel="stylesheet" type="text/css" media="all" href="{% static 'html/assets/colors/color1.css' %}" />
+
+</head>
+
+<body class="app sidebar-mini">
+
+	<!-- GLOBAL-LOADER -->
+	<div id="global-loader">
+		<img src="{% static 'assets/images/loader.svg' %}" class="loader-img" alt="Loader">
+	</div>
+	<!-- /GLOBAL-LOADER -->
+
+	<!-- PAGE -->
+	<div class="page">
+		<div class="page-main">
+			<!--app-content open-->
+			<div class="app-content">
+				<div class="side-app">
+
+					<!-- PAGE-HEADER -->
+					<div class="page-header">
+						<div>
+							<h1 class="page-title">Profile</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">Pages</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Profile</li>
+							</ol>
+						</div>
+					</div>
+					<!-- PAGE-HEADER END -->
+
+					<!-- ROW-1 OPEN -->
+					<div class="row" id="user-profile">
+						<div class="col-lg-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="wideget-user">
+										<div class="row">
+											<div class="col-lg-12 col-md-12 col-xl-6">
+												<div class="wideget-user-desc d-sm-flex">
+													<div class="wideget-user-img">
+														<img class=""
+															 src="{% static 'html/assets/images/users/8.jpg' %}"  <!-- Ganti dengan profil avatar -->
+													</div>
+													<div class="user-wrap">
+														<h4>{{ request.user.get_short_name }}</h4> <!-- Nama lengkap -->
+														<h6 class="text-muted mb-3">Bergabung Sejak: {{ request.user.date_joined|date:"F Y" }}</h6> <!-- Tanggal bergabung -->
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="border-top">
+									<div class="wideget-user-tab">
+										<div class="tab-menu-heading"></div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-content">
+								<div class="tab-pane active show" id="tab-51">
+									<div id="profile-log-switch">
+										<div class="card">
+											<div class="card-body">
+												<div class="media-heading">
+													<h5><strong>Informasi Admin</strong></h5>
+												</div>
+												<div class="table-responsive ">
+													<table class="table row table-borderless">
+														<tbody class="col-lg-12 col-xl-6 p-0">
+															<tr>
+																<td><strong>Nama Lengkap:</strong> {{ request.user.get_full_name }}</td>
+															</tr>
+															<tr>
+																<td><strong>Username:</strong> {{ request.user.username }}</td>
+															</tr>
+														</tbody>
+														<tbody class="col-lg-12 col-xl-6 p-0">
+															<tr>
+																<td><strong>Email:</strong> {{ request.user.email }}</td>
+															</tr>
+															<tr>
+																<td><strong>No HP:</strong> {{ request.user.phone }}</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+
+
+{% include 'admin/layouts/footer.html' %}
+
+<!-- BACK-TO-TOP -->
+<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- JQUERY JS -->
+<script src="{% static 'html/assets/js/jquery.min.js' %}"></script>
+
+<!-- BOOTSTRAP JS -->
+<script src="{% static 'html/assets/plugins/bootstrap/js/popper.min.js' %}"></script>
+<script src="{% static 'html/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+<!-- SPARKLINE JS-->
+<script src="{% static 'html/assets/js/jquery.sparkline.min.js' %}"></script>
+
+<!-- CHART-CIRCLE JS-->
+<script src="{% static 'html/assets/js/circle-progress.min.js' %}"></script>
+
+<!-- INPUT MASK JS-->
+<script src="{% static 'html/assets/plugins/input-mask/jquery.mask.min.js' %}"></script>
+
+<!-- SIDE-MENU JS -->
+<script src="{% static 'html/assets/plugins/sidemenu/sidemenu.js' %}"></script>
+
+<!-- SIDEBAR JS -->
+<script src="{% static 'html/assets/plugins/sidebar/sidebar.js' %}"></script>
+
+<!-- Perfect SCROLLBAR JS-->
+<script src="{% static 'html/assets/plugins/p-scroll/perfect-scrollbar.js' %}"></script>
+<script src="{% static 'html/assets/plugins/p-scroll/pscroll.js' %}"></script>
+<script src="{% static 'html/assets/plugins/p-scroll/pscroll-1.js' %}"></script>
+
+<!-- INTERNAL GALLERY JS -->
+<script src="{% static 'html/assets/plugins/gallery/picturefill.js' %}"></script>
+<script src="{% static 'html/assets/plugins/gallery/lightgallery.js' %}"></script>
+<script src="{% static 'html/assets/plugins/gallery/lightgallery-1.js' %}"></script>
+<script src="{% static 'html/assets/plugins/gallery/lg-pager.js' %}"></script>
+<script src="{% static 'html/assets/plugins/gallery/lg-autoplay.js' %}"></script>
+<script src="{% static 'html/assets/plugins/gallery/lg-fullscreen.js' %}"></script>
+<script src="{% static 'html/assets/plugins/gallery/lg-zoom.js' %}"></script>
+<script src="{% static 'html/assets/plugins/gallery/lg-hash.js' %}"></script>
+<script src="{% static 'html/assets/plugins/gallery/lg-share.js' %}"></script>
+
+<!-- CUSTOM JS-->
+<script src="{% static 'html/assets/js/custom.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+{% load static %}
+{% include 'admin/layouts/header.html' %}
+{% include 'admin/layouts/sidebar.html' %}
+
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+	<!-- TITLE -->
+	<title>SI-RUTILAH</title>
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'html/assets/images/brand/logo 2.jpeg' %}" />
+
+	
+	<!-- BOOTSTRAP CSS -->
+	<link href="{% static 'html/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+
+	<!-- STYLE CSS -->
+	<link href="{% static 'html/assets/css/style.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/css/dark-style.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/css/skin-modes.css' %}" rel="stylesheet" />
+
+	<!-- SIDE-MENU CSS -->
+	<link href="{% static 'html/assets/css/sidemenu.css' %}" rel="stylesheet" id="sidemenu-theme">
+
+	<!--C3 CHARTS CSS -->
+	<link href="{% static 'html/assets/plugins/charts-c3/c3-chart.css' %}" rel="stylesheet" />
+
+	<!-- P-scroll bar css-->
+	<link href="{% static 'html/assets/plugins/p-scroll/perfect-scrollbar.css' %}" rel="stylesheet" />
+
+	<!--- FONT-ICONS CSS -->
+	<link href="{% static 'html/assets/css/icons.css' %}" rel="stylesheet" />
+
+	<!-- SIDEBAR CSS -->
+	<link href="{% static 'html/assets/plugins/sidebar/sidebar.css' %}" rel="stylesheet">
+
+	<!-- SELECT2 CSS -->
+	<link href="{% static 'html/assets/plugins/select2/select2.min.css' %}" rel="stylesheet" />
+
+	<!-- INTERNAL Data table css -->
+	<link href="{% static 'html/assets/plugins/datatable/css/dataTables.bootstrap5.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/plugins/datatable/responsive.bootstrap5.css' %}" rel="stylesheet" />
+
+	<!-- COLOR SKIN CSS -->
+	<link id="theme" rel="stylesheet" type="text/css" media="all" href="{% static 'html/assets/colors/color1.css' %}" />
+
+	<!-- Leaflet CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-GmQN3WcgjIoVbVkeJ6AVaAIl6FL69uYSfHdSmf4gQozqozbX62P3lxGG7fytesoB" crossorigin=""/>
+
+
+</head>
+
+<body class="app sidebar-mini">
+
+	<!-- GLOBAL-LOADER -->
+	<div id="global-loader">
+		<img src="{% static 'assets/images/loader.svg' %}" class="loader-img" alt="Loader">
+	</div>
+	<!-- /GLOBAL-LOADER -->
+
+	<!-- Leaflet JS -->
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-JfojYBKoCEhgDYKHt94TwFJBIoNq/ZaSODHe1G31ysUpBFO+mGKoSWzMNEL1iOTd" crossorigin=""></script>
+
+
+	<!-- PAGE -->
+	<div class="page">
+		<div class="page-main">
+			<!--app-content open-->
+			<div class="app-content">
+				<div class="side-app">
+					<!-- PAGE-HEADER -->
+					<div class="page-header">
+						<div>
+							<h1 class="page-title">Dashboard</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+							</ol>
+						</div>
+					</div>
+					<!-- PAGE-HEADER END -->
+
+					<!-- ROW-1 -->
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+							<div class="row">
+								<div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+									<div class="card overflow-hidden">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+									<div class="card overflow-hidden">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+									<div class="card overflow-hidden">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+									<div class="card overflow-hidden">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- ROW-1 END -->
+
+				<!-- ROW-5 -->
+				<div class="row">
+					<div class="col-12 col-sm-12">
+						<div class="card ">
+							<div class="card-header">
+								<h3 class="card-title mb-0">Data Daftar Rumah</h3>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table id="data-table" class="table table-bordered text-nowrap mb-0">
+										<thead class="border-top">
+											<tr>
+												<th class="bg-transparent border-bottom-0 w-5">No</th>
+												<th class="bg-transparent border-bottom-0">No kk</th>
+												<th class="bg-transparent border-bottom-0">NIK</th>
+												<th class="bg-transparent border-bottom-0">Nama KK</th>
+												<th class="bg-transparent border-bottom-0">Latitude </th>
+                                                <th class="bg-transparent border-bottom-0">longitude </th>
+												<th class="bg-transparent border-bottom-0">Action</th>
+											</tr>
+										</thead>
+										
+										<tbody>
+											{% for dt_daftar in data_daftar %}
+											<tr>
+												<th scope="row">{{ forloop.counter }}</th>
+												<td>{{ dt_daftar.no_kk }}</td>
+												<td>{{ dt_daftar.nik }}</td>
+												<td>{{ dt_daftar.nama_kk }}</td>
+												<td>{{ dt_daftar.latitude }}</td>
+                                                <td>{{ dt_daftar.longitude }}</td>
+												<td>
+													<div class="d-flex">
+														<a href="{% url 'rtlh_admin:edit' dt_daftar.id %}"
+															class="btn btn-warning mx-2">Edit</a>
+														<a href="{% url 'rtlh_admin:delete' dt_daftar.id %}"
+															class="btn btn-danger">Hapus</a>
+													</div>
+												</td>
+											</tr>
+											{% endfor %}
+										</tbody>
+										
+									</table>
+								</div>
+							</div>
+
+						</div>
+					</div><!-- COL END -->
+				</div><!-- ROW-5 END -->
+			</div>
+		</div>
+		<!-- CONTAINER END -->
+	</div>
+	</div>
+
+	<!-- BACK-TO-TOP -->
+	<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+	<!-- JQUERY JS -->
+	<script src="{% static 'html/assets/js/jquery.min.js' %}"></script>
+
+	<!-- BOOTSTRAP JS -->
+	<script src="{% static 'html/assets/plugins/bootstrap/js/popper.min.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+	<!-- SPARKLINE JS-->
+	<script src="{% static 'html/assets/js/jquery.sparkline.min.js' %}"></script>
+
+	<!-- CHART-CIRCLE JS-->
+	<script src="{% static 'html/assets/js/circle-progress.min.js' %}"></script>
+
+	<!-- CHARTJS CHART JS-->
+	<script src="{% static 'html/assets/plugins/chart/Chart.bundle.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/chart/utils.js' %}"></script>
+
+	<!-- PIETY CHART JS-->
+	<script src="{% static 'html/assets/plugins/peitychart/jquery.peity.min.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/peitychart/peitychart.init.js' %}"></script>
+
+	<!-- INTERNAL SELECT2 JS -->
+	<script src="{% static 'html/assets/plugins/select2/select2.full.min.js' %}"></script>
+
+	<!-- INTERNAL Data tables js-->
+	<script src="{% static 'html/assets/plugins/datatable/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/datatable/js/dataTables.bootstrap5.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/datatable/dataTables.responsive.min.js' %}"></script>
+
+	<!-- ECHART JS-->
+	<script src="{% static 'html/assets/plugins/echarts/echarts.js' %}"></script>
+
+	<!-- SIDE-MENU JS-->
+	<script src="{% static 'html/assets/plugins/sidemenu/sidemenu.js' %}"></script>
+
+	<!-- SIDEBAR JS -->
+	<script src="{% static 'html/assets/plugins/sidebar/sidebar.js' %}"></script>
+
+	<!-- Perfect SCROLLBAR JS-->
+	<script src="{% static 'html/assets/plugins/p-scroll/perfect-scrollbar.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/p-scroll/pscroll.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/p-scroll/pscroll-1.js' %}"></script>
+
+	<!-- APEXCHART JS -->
+	<script src="{% static 'html/assets/js/apexcharts.js' %}"></script>
+
+	<!-- INDEX JS -->
+	<script src="{% static 'html/assets/js/index1.js' %}"></script>
+
+	<!-- CUSTOM JS -->
+	<script src="{% static 'html/assets/js/custom.js' %}"></script>
+
+</body>
+
+</html>
+
+{% include 'admin/layouts/footer.html' %}

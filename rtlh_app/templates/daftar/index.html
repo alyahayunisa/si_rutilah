@@ -1,0 +1,59 @@
+{% load static %}
+{% include 'layouts2/navbar.html' %}
+
+<section class="page-header page-header-modern section position-relative border-0 m-0" style="background-image: url(img/demos/insurance/backgrounds/background-3.jpg); background-position: center; background-size: cover;">
+    <div class="container position-relative pb-5 mb-5">
+        <div class="row text-center text-md-start py-2">
+            <div class="col p-relative bottom-5">
+                <ul class="breadcrumb d-block text-4 opacity-8 text-default mb-0">
+                    <li><a href="{% url 'rtlh_app:beranda' %}" class="text-decoration-none text-default">Beranda</a></li>
+                    <li class="active">Data Verifikasi RTLH</li>
+                </ul>
+                <h1 class="font-weight-bold text-color-dark text-10 mt-1 mb-0">Data Verifikasi RTLH</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="row">
+    <div class="col-12 col-sm-12">
+        <div class="card ">
+            <div class="card-header">
+                <h3 class="card-title mb-0">Data Verifikasi</h3>
+            </div>
+        </div>
+    </div>
+            
+    <div class="table-responsive">
+        <table id="data-table" class="table table-bordered text-nowrap mb-0">
+            <thead class="border-top">
+                <tr>
+                    <th class="bg-transparent border-bottom-0">No</th>
+                    <th class="bg-transparent border-bottom-0">Nama KK</th>
+                    <th class="bg-transparent border-bottom-0">Tanggal Verifikasi</th>
+                    <th class="bg-transparent border-bottom-0">Status Pengajuan</th>
+                    <th class="bg-transparent border-bottom-0">Alasan</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dt_verif in data_verif %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ dt_verif.nama_kk }}</td>
+                    <td>{{ dt_verif.tanggal_verifikasi }}</td>
+                    <td>{{ dt_verif.status_pengajuan }}</td>
+                    <td>{{ dt_verif.alasan }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">Data tidak ditemukan.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+{% include 'layouts2/footer.html' %}

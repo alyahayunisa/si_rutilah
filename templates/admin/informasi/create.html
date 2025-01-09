@@ -1,0 +1,150 @@
+{% load static %}
+{% include 'admin/layouts/header.html' %}
+{% include 'admin/layouts/sidebar.html' %}
+
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'html/assets/images/brand/favicon.ico' %}" />
+
+	<!-- TITLE -->
+	<title>SI-RUTILAH</title>
+	
+	<!-- BOOTSTRAP CSS -->
+	<link href="{% static 'html/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+
+	<!-- STYLE CSS -->
+	<link href="{% static 'html/assets/css/style.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/css/dark-style.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/css/skin-modes.css' %}" rel="stylesheet" />
+
+	<!-- SIDE-MENU CSS -->
+	<link href="{% static 'html/assets/css/sidemenu.css' %}" rel="stylesheet" id="sidemenu-theme">
+
+	<!--C3 CHARTS CSS -->
+	<link href="{% static 'html/assets/plugins/charts-c3/c3-chart.css' %}" rel="stylesheet" />
+
+	<!-- P-scroll bar css-->
+	<link href="{% static 'html/assets/plugins/p-scroll/perfect-scrollbar.css' %}" rel="stylesheet" />
+
+	<!--- FONT-ICONS CSS -->
+	<link href="{% static 'html/assets/css/icons.css' %}" rel="stylesheet" />
+
+	<!-- SIDEBAR CSS -->
+	<link href="{% static 'html/assets/plugins/sidebar/sidebar.css' %}" rel="stylesheet">
+
+	<!-- SELECT2 CSS -->
+	<link href="{% static 'html/assets/plugins/select2/select2.min.css' %}" rel="stylesheet" />
+
+	<!-- INTERNAL Data table css -->
+	<link href="{% static 'html/assets/plugins/datatable/css/dataTables.bootstrap5.css' %}" rel="stylesheet" />
+	<link href="{% static 'html/assets/plugins/datatable/responsive.bootstrap5.css' %}" rel="stylesheet" />
+
+	<!-- COLOR SKIN CSS -->
+	<link id="theme" rel="stylesheet" type="text/css" media="all" href="{% static 'html/assets/colors/color1.css' %}" />
+
+</head>
+
+<body class="app sidebar-mini">
+
+	<!-- GLOBAL-LOADER -->
+	<div id="global-loader">
+		<img src="{% static 'assets/images/loader.svg' %}" class="loader-img" alt="Loader">
+	</div>
+	<!-- /GLOBAL-LOADER -->
+
+	<!-- PAGE -->
+	<div class="page">
+		<class="page-main">
+			<!--app-content open-->
+			<div class="app-content">
+				<div class="side-app">
+
+					<!-- PAGE-HEADER -->
+					<div class="page-header">
+						<div>
+							<h1 class="page-title">Data Informasi</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">Forms</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Data Informasi</li>
+							</ol>
+						</div>
+					</div>
+					<!-- PAGE-HEADER END -->
+
+
+					<form method="post" action="{% url 'rtlh_admin:tambahinfo' %}" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="col-lg-12 col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Tambah Data Informasi</h3>
+								</div>
+								<div class="card-body pt-2">                                    
+                                    <div class="form-group">
+										<label class="form-label">Judul</label>
+										<input type="text" value="{{ data_info.judul }}" class="form-control"
+											name="judul" aria-describedby="emailHelp">
+									</div>
+                                    <div class="form-group">
+										<label class="form-label">Deskripsi</label>
+										<input type="text" value="{{ data_info.deskripsi }}" class="form-control"
+											name="deskripsi" aria-describedby="emailHelp">
+									</div>
+									
+									<button type="submit" class="btn btn-primary mt-4 mb-0">Submit</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+	</div>
+	</class>
+	</div>
+
+
+	</div>
+
+
+	<!-- BACK-TO-TOP -->
+	<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+	<!-- JQUERY JS -->
+	<script src="{% static 'html/assets/js/jquery.min.js' %}"></script>
+
+	<!-- BOOTSTRAP JS -->
+	<script src="{% static 'html/assets/plugins/bootstrap/js/popper.min.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+	<!-- CHARTJS CHART JS-->
+	<script src="{% static 'html/assets/plugins/chart/Chart.bundle.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/chart/utils.js' %}"></script>
+
+	<!-- C3 CHART JS -->
+	<script src="{% static 'html/assets/plugins/charts-c3/d3.v5.min.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/charts-c3/c3-chart.js' %}"></script>
+
+	<!-- INPUT MASK JS-->
+	<script src="{% static 'html/assets/plugins/input-mask/jquery.mask.min.js' %}"></script>
+
+	<!-- SIDE-MENU JS-->
+	<script src="{% static 'html/assets/plugins/sidemenu/sidemenu.js' %}"></script>
+
+	<!-- SIDEBAR JS -->
+	<script src="{% static 'html/assets/plugins/sidebar/sidebar.js' %}"></script>
+
+	<!-- Perfect SCROLLBAR JS-->
+	<script src="{% static 'html/assets/plugins/p-scroll/perfect-scrollbar.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/p-scroll/pscroll.js' %}"></script>
+	<script src="{% static 'html/assets/plugins/p-scroll/pscroll-1.js' %}"></script>
+
+	<!-- CUSTOM JS -->
+	<script src="{% static 'html/assets/js/custom.js' %}"></script>
+
+</body>
+
+</html>
