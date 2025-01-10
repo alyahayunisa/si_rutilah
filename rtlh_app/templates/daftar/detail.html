@@ -1,0 +1,54 @@
+{% include 'layouts2/navbar.html' %}
+
+
+<section>
+    <div class="row text-center text-md-start py-2 header-section">
+        <div class="col p-relative bottom-5">
+            <ul class="breadcrumb d-block text-4 opacity-8 text-default mb-0">
+                <li><a href="#" class="text-decoration-none text-default">Beranda</a></li>
+                <li class="active">Daftar Rumah</li>
+                <li class="active">Detail Daftar Rumah</li>
+            </ul>
+            <h1 class="font-weight-bold text-color-dark text-10 mt-1 mb-0">Detail Daftar Rumah</h1>
+        </div>
+    </div>
+</section>
+<section class="mt-2" style="height: 100vh;">
+    <div class="container">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="table">No kk</label>
+                <input type="text" value="{{ data_rumah.no_kk }}" class="form-control" name="no_kk" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">NIK</label>
+                <input type="text" value="{{ data_rumah.nik }}" class="form-control" name="nik" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Nama KK</label>
+                <input type="text" value="{{ data_rumah.nama_kk }}" class="form-control" name="nama_kk" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Alamat</label>
+                <input type="text" value="{{ data_rumah.alamat }}" class="form-control" name="alamat" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Pekerjaan</label>
+                <input type="text" value="{{ data_rumah.pekerjaan }}" class="form-control" name="pekerjaan" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Keterangan</label>
+                <input type="text" value="{{ data_rumah.keterangan }}" class="form-control" name="keterangan" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Kriteria</label>
+                <input type="text" value="{{ data_daftar.kriteria }}" class="form-control" name="kriteria" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Status Pengajuan</label>
+                <input type="text" value="{{ data_daftar.status_pengajuan }}" class="form-control" name="status_pengajuan" readonly>
+            </div>
+            
+            <a href="{% url 'rtlh_app:daftar' %}" class="btn btn-danger">Kembali</a>
+    </div>
+   
+</section>
