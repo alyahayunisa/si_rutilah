@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.views import View
 from rtlh_admin.models import data_kriteria
 from django.db import transaction
@@ -16,7 +16,11 @@ class KriteriaViews(View):
 
 class CreateKriteriaViews(View):
     def get(self, request):
-        return render(request, 'admin/kriteria/create.html')
+        data_kri = data_kriteria.objects.all()
+        data = {
+            'data_kri' : data_kri
+        }
+        return render(request, 'admin/kriteria/create.html', data)
     
     def post(self, request):
         frm_kriteria = request.POST.get('kriteria')
@@ -25,6 +29,7 @@ class CreateKriteriaViews(View):
         frm_desk_full = request.POST.get('desk_full')
         frm_img_tipe = request.FILES.get('img_tipe')
         print(frm_kriteria)
+        print(frm_img_tipe)
         
         try:
             with transaction.atomic():
@@ -56,7 +61,7 @@ class EditKriteriaViews(View):
         
         return render(request, 'admin/kriteria/create.html', data)
     
-    def post(self, request, id_kriteria):
+    def post(self, request):
         # Ambil data yang di-submit dari form
         frm_kriteria = request.POST.get('kriteria')
         frm_desk_singkat = request.POST.get('desk_singkat')

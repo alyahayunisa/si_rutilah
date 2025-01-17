@@ -76,7 +76,7 @@
 					<!-- PAGE-HEADER END -->
 
 
-					<form method="post" action="{% url 'rtlh_admin:create' %}">
+					<form method="post" action="{% url 'rtlh_admin:create' %}" enctype="multipart/form-data" >
 						{% csrf_token %}
 						<div class="col-lg-12 col-md-12">
 							<div class="card">

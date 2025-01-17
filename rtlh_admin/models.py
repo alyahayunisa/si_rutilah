@@ -34,7 +34,6 @@ class data_rumah(models.Model):
     no_hp = models.CharField(null=True, max_length=20)
     pekerjaan = models.CharField(null=True, max_length=300)
     penghasilan = models.CharField(null=True, max_length=300)
-    keterangan = models.CharField(null=True, max_length=300)
     latitude = models.DecimalField(null=True, max_digits=9, decimal_places=6)
     longitude = models.DecimalField(null=True, max_digits=9, decimal_places=6)
 

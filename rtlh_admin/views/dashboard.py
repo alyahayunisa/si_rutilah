@@ -53,7 +53,8 @@ class EditDaftarViews(View):
         frm_no_hp = request.POST.get('no_hp')
         frm_pekerjaan = request.POST.get('pekerjaan') 
         frm_penghasilan = request.POST.get('penghasilan')
-        frm_keterangan = request.POST.get('keterangan')
+        frm_latitude = request.POST.get('latitude')  # Ambil latitude dari form
+        frm_longitude = request.POST.get('longitude')
         print(frm_no_kk)
 
         try:
@@ -73,7 +74,8 @@ class EditDaftarViews(View):
                 insert.no_hp = frm_no_hp
                 insert.pekerjaan = frm_pekerjaan
                 insert.penghasilan = frm_penghasilan
-                insert.keterangan = frm_keterangan
+                insert.latitude = frm_latitude 
+                insert.longitude = frm_longitude 
                 insert.save()
 
                 messages.success(request, f"Akun {insert.nama_kk} berhasil ditambahkan")
