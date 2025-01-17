@@ -131,12 +131,10 @@
 												<th class="bg-transparent border-bottom-0 w-5">No</th>
 												<th class="bg-transparent border-bottom-0">Nama KK</th>
 												<th class="bg-transparent border-bottom-0 w-5">Status Tanah</th>
-												<th class="bg-transparent border-bottom-0 w-5">Status Kepemilikan</th>
-                                                <th class="bg-transparent border-bottom-0 w-5">Luas Tanah</th>
 												<th class="bg-transparent border-bottom-0">Status Rumah</th>
-												<th class="bg-transparent border-bottom-0">Luas Bangunan</th>
                                                 <th class="bg-transparent border-bottom-0">Kriteria</th>
 												<th class="bg-transparent border-bottom-0">Foto Rumah</th>
+												<th class="bg-transparent border-bottom-0">Tanggal Input</th>
 												<th class="bg-transparent border-bottom-0">Action</th>
 											</tr>
 										</thead>
@@ -148,10 +146,7 @@
 												<th scope="row">{{ forloop.counter }}</th>
 												<td>{{ dt_rumahrtlh.nama_kk.nama_kk }}</td>
 												<td>{{ dt_rumahrtlh.status_tanah }}</td>
-												<td>{{ dt_rumahrtlh.status_kepemilikan }}</td>
-												<td>{{ dt_rumahrtlh.luas_tanah }}</td>
 												<td>{{ dt_rumahrtlh.status_rumah }}</td>
-												<td>{{ dt_rumahrtlh.luas_bangunan }}</td>
                                                 <td>{{ dt_rumahrtlh.kriteria }}</td>
 												<td>
 													{% if dt_rumahrtlh.img_rumah %}
@@ -160,7 +155,7 @@
 														Tidak ada foto
 													{% endif %}
 												</td>
-												
+												<td>{{ dt_rumahrtlh.tgl_input }}</td>
 												<td>
 													<div class="d-flex">
 														<a href="{% url 'rtlh_admin:ubahrtlh' dt_rumahrtlh.id %}"

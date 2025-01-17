@@ -24,12 +24,14 @@ class TambahTipsrtlhViews(View):
     def post(self, request):
         frm_judul = request.POST.get('judul')
         frm_deskripsi = request.POST.get('deskripsi')
+        frm_icon = request.FILES.get('icon')
         
         try:
             with transaction.atomic():
                 insert = tips()
                 insert.judul = frm_judul
                 insert.deskripsi = frm_deskripsi
+                insert.icon = frm_icon
                 insert.save()
                 
                 messages.success(request, f"form {insert.judul} berhasil ditambahkan")
@@ -53,12 +55,14 @@ class EditTipsrtlhViews(View):
     def post(self, request):
         frm_judul = request.POST.get('judul')
         frm_deskripsi = request.POST.get('deskripsi')
+        frm_icon = request.FILES.get('icon')
         
         try:
             with transaction.atomic():
                 insert = tips()
                 insert.judul = frm_judul
                 insert.deskripsi = frm_deskripsi
+                insert.icon = frm_icon
                 insert.save()
                 
                 messages.success(request, f"form {insert.judul} berhasil ditambahkan")

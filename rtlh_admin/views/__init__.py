@@ -14,3 +14,4 @@ from .sekilas import *
 from .krirtlh import *
 from .tipsrtlh import *
 from .kontakhub import *
+from .laporan import *

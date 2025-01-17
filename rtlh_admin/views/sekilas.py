@@ -31,7 +31,7 @@ class TambahSekilasViews(View):
                 insert = sekilas_info()
                 insert.judul = frm_judul
                 insert.deskripsi = frm_deskripsi
-                insert.img_uu = frm_img_info
+                insert.img_info = frm_img_info
                 insert.save()
                 
                 messages.success(request, f"form {insert.judul} berhasil ditambahkan")
@@ -62,7 +62,7 @@ class EditSekilasViews(View):
                 insert = sekilas_info()
                 insert.judul = frm_judul
                 insert.deskripsi = frm_deskripsi
-                insert.img_uu = frm_img_info
+                insert.img_info = frm_img_info
                 insert.save()
                 
                 messages.success(request, f"form {insert.judul} berhasil ditambahkan")

@@ -84,20 +84,15 @@
 				<li><a href="{% url 'rtlh_admin:kontak'%}" class="slide-item"> Data Kontak</a></li>
 			</ul>
 		</li>
-		
-		<li>
-			<h3>Setting</h3>
-		</li>
 		<li class="slide">
 			<a class="side-menu__item" data-bs-toggle="slide" href="#"><i
-					class="side-menu__icon fe fe-settings"></i><span class="side-menu__label">Setting</span><i class="angle fa fa-angle-right"></i></a>
+					class="side-menu__icon fe fe-clipboard"></i><span
+					class="side-menu__label">Laporan</span><i class="angle fa fa-angle-right"></i></a>
 			<ul class="slide-menu">
-				<li><a href="login.html" class="slide-item"> Login</a></li>
-				<li><a href="register.html" class="slide-item"> Register</a></li>
-				<li><a href="forgot-password.html" class="slide-item"> Forgot Password</a></li>
-				<li><a href="lockscreen.html" class="slide-item"> Lock screen</a></li>
+				<li><a href="{% url 'rtlh_admin:laporan'%}" class="slide-item"> Laporan</a></li>
 			</ul>
 		</li>
+		
 	</ul>
 </aside>
 <!--/APP-SIDEBAR-->

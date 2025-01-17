@@ -103,8 +103,9 @@
 										<label class="form-label">Status Pengajuan</label>
 										<select class="form-control" name="status_pengajuan" aria-describedby="emailHelp">
 											<option value="">Select Status</option>
-											<option value="diproses" {% if data_verif.status_pengajuan == 'diproses' %}selected{% endif %}>Diproses</option>
-											<option value="ditolak" {% if data_verif.status_pengajuan == 'ditolak' %}selected{% endif %}>Ditolak</option>
+											<option value="Proses" {% if data_verif.status_pengajuan == 'Proses' %}selected{% endif %}>Proses</option>
+											<option value="Disetujui" {% if data_verif.status_pengajuan == 'Disetujui' %}selected{% endif %}>Disetujui</option>
+											<option value="Ditolak" {% if data_verif.status_pengajuan == 'Ditolak' %}selected{% endif %}>Ditolak</option>
 										</select>
 									</div>
                                     <div class="form-group">

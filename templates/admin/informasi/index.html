@@ -131,6 +131,7 @@
 												<th class="bg-transparent border-bottom-0 w-5">No</th>
 												<th class="bg-transparent border-bottom-0">Judul</th>
 												<th class="bg-transparent border-bottom-0">Deskripsi</th>
+												<th class="bg-transparent border-bottom-0">Foto</th>
 												<th class="bg-transparent border-bottom-0">Action</th>
 											</tr>
 										</thead>
@@ -142,7 +143,13 @@
 												<th scope="row">{{ forloop.counter }}</th>
 												<td>{{ dt_info.judul }}</td>
 												<td>{{ dt_info.deskripsi }}</td>
-            									
+            									<td>
+													{% if dt_info.img_informasi %}
+														<img src="{{ dt_info.img_informasi.url }}" alt="img_informasi" width="100">
+													{% else %}
+														Tidak ada foto
+													{% endif %}
+												</td>
 												<td>
 													<div class="d-flex">
 														<a href="{% url 'rtlh_admin:editinfo' dt_info.id %}"

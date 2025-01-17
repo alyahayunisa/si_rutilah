@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from rtlh_admin.models import data_rumah
+from rtlh_admin.models import *
 from django.db import transaction
 from django.contrib import messages
 from django.urls import reverse
@@ -9,8 +9,22 @@ from django.urls import reverse
 class DashboardViews(View):
     def get(self, request):
         data_daftar = data_rumah.objects.all()
+        total_pemilik = data_rumah.objects.count()
+        total_permohonan = permohonan.objects.count()
+        total_verifikasi = verifikasi.objects.count()
+        total_RTLH = data_rtlh.objects.count()
+        total_proses = verifikasi.objects.filter(status_pengajuan='Proses').count()
+        total_ditolak = verifikasi.objects.filter(status_pengajuan='Ditolak').count()
+        total_disetujui = verifikasi.objects.filter(status_pengajuan='Disetujui').count()
         data = {
-            'data_daftar' : data_daftar
+            'data_daftar' : data_daftar,
+            'total_pemilik': total_pemilik,
+            'total_permohonan': total_permohonan,
+            'total_verifikasi': total_verifikasi,
+            'total_RTLH': total_RTLH,
+            'total_proses': total_proses,
+            'total_ditolak': total_ditolak,
+            'total_disetujui': total_disetujui,
         }
         return render(request, 'admin/dashboard/index.html', data)
     

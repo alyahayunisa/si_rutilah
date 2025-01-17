@@ -23,7 +23,7 @@ class CreateKriteriaViews(View):
         frm_desk_singkat = request.POST.get('desk_singkat')
         frm_desk_detail = request.POST.get('desk_detail')
         frm_desk_full = request.POST.get('desk_full')
-        frm_img_kriteria = request.FILES.get('img_kriteria')
+        frm_img_tipe = request.FILES.get('img_tipe')
         print(frm_kriteria)
         
         try:
@@ -33,7 +33,7 @@ class CreateKriteriaViews(View):
                 insert.desk_singkat = frm_desk_singkat
                 insert.desk_detail = frm_desk_detail
                 insert.desk_full = frm_desk_full
-                insert.img_kriteria = frm_img_kriteria
+                insert.img_tipe = frm_img_tipe
                 insert.save()
                 
                 messages.success(request, f"form {insert.kriteria} berhasil ditambahkan")
@@ -62,7 +62,7 @@ class EditKriteriaViews(View):
         frm_desk_singkat = request.POST.get('desk_singkat')
         frm_desk_detail = request.POST.get('desk_detail')
         frm_desk_full = request.POST.get('desk_full')
-        frm_img_kriteria = request.FILES.get('img_kriteria')
+        frm_img_tipe = request.FILES.get('img_tipe')
         print(frm_kriteria)
         
         try:
@@ -72,7 +72,7 @@ class EditKriteriaViews(View):
                 insert.desk_singkat = frm_desk_singkat
                 insert.desk_detail = frm_desk_detail
                 insert.desk_full = frm_desk_full
-                insert.img_kriteria = frm_img_kriteria
+                insert.img_tipe = frm_img_tipe
                 insert.save()
 
                 messages.success(request, f"form {insert.kriteria} berhasil ditambahkan")

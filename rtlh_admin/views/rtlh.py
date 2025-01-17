@@ -46,6 +46,7 @@ class TambahRtlhViews(View):
         frm_kriteria_id = request.POST.get('kriteria')  # Ambil ID dari POST
         frm_kriteria = data_kriteria.objects.get(id=frm_kriteria_id)  # Ambil objek berdasarkan ID
         frm_img_rumah = request.FILES.get('img_rumah')
+        frm_tgl_input = request.POST.get('tgl_input')
         frmisi = data_rumah.objects.get(id=frm_nama_kk)
         print(frm_nama_kk)
         
@@ -68,6 +69,7 @@ class TambahRtlhViews(View):
                 insert.sumber_listrik = frm_sumber_lisrik
                 insert.kriteria = frm_kriteria
                 insert.img_rumah = frm_img_rumah
+                insert.tgl_input = frm_tgl_input
                 insert.save()
                 
                 messages.success(request, f"form {insert.nama_kk} berhasil ditambahkan")
@@ -112,6 +114,7 @@ class UbahRtlhViews(View):
         frm_kriteria_id = request.POST.get('kriteria')  # Ambil ID dari POST
         frm_kriteria = data_kriteria.objects.get(id=frm_kriteria_id)  # Ambil objek berdasarkan ID
         frm_img_rumah = request.FILES.get('img_rumah')
+        frm_tgl_input = request.POST.get('tgl_input')
         frmisi = data_rumah.objects.get(id=frm_nama_kk)
         print(frm_nama_kk)
         
@@ -134,6 +137,7 @@ class UbahRtlhViews(View):
                 insert.sumber_listrik = frm_sumber_lisrik
                 insert.kriteria = frm_kriteria
                 insert.img_rumah = frm_img_rumah
+                insert.tgl_input = frm_tgl_input
                 insert.save()
 
                 messages.success(request, f"form {insert.nama_kk} berhasil ditambahkan")

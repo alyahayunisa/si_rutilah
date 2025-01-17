@@ -55,7 +55,7 @@ urlpatterns = [
     path('tambahkri/', krirtlh.TambahKrirtlhViews.as_view(), name = 'tambah_kri'),
     path('ubahkri/<int:id_krirtlh>', krirtlh.EditKrirtlhViews.as_view(), name = 'ubah_kri'),
     path('hpskri/<int:id_krirtlh>', krirtlh.HapusKrirtlhViews.as_view(), name = 'hps_kri'),
+    path('laporan/', laporan.LaporanViews.as_view(), name = 'laporan'),
+    #path('periode/', laporan.LaporanPeriodeViews.as_view(), name = 'periode'),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

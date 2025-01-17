@@ -1,0 +1,88 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laporan Data RTLH</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .kop-surat {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .kop-surat img {
+            width: 100px; /* Atur ukuran logo */
+            height: auto;
+        }
+        .kop-surat h2 {
+            margin: 5px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .kop-surat h3 {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .kop-surat p {
+            margin: 2px 0;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .column-no {
+            width: 5%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kop Surat -->
+    <div class="kop-surat">
+        <img src="{% static 'path_to_logo/logo_dinas.png' %}" alt="Logo Dinas">
+        <h2>Dinas Perumahan dan Kawasan Permukiman</h2>
+        <h3>Kabupaten Dogiyai, Provinsi Papua Tengah</h3>
+        <p>Alamat: Jalan Ilaga Kigamani Nabire KM 200, Moenamani, Dogiyai</p>
+    </div>
+
+    <!-- Judul Laporan -->
+    <h1 style="text-align: center;">Laporan Data RTLH</h1>
+
+    <div>
+        <p><strong>Periode: </strong> {{ start_date|default:"-" }} - {{ end_date|default:"-" }}</p>
+    </div>
+
+    <!-- Tabel Data -->
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Tanggal</th>
+                <th>Nama KK</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dt_rumahrtlh in data_rumahrtlh %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ dt_rumahrtlh.tgl_input }}</td>
+                <td>{{ dt_rumahrtlh.nama_kk.nama_kk }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

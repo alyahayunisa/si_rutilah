@@ -13,7 +13,7 @@ class data_kriteria(models.Model):
     desk_singkat = models.CharField(max_length=300)
     desk_detail = models.CharField(max_length=300)
     desk_full = models.CharField(max_length=500, null=True)
-    img_kriteria = models.ImageField(null=True, upload_to='images/')
+    img_tipe = models.ImageField(null=True, upload_to='tipe/')
 
     def __str__(self):
         return self.kriteria
@@ -43,10 +43,10 @@ class data_rumah(models.Model):
 
 class permohonan(models.Model):
     nama_kk = models.ForeignKey(data_rumah, on_delete=models.CASCADE, related_name="permohonan")
-    img_ktp = models.ImageField(null=True, upload_to='images/')
-    img_kk = models.ImageField(null=True, upload_to='images/')
-    img_rumah = models.ImageField(null=True, upload_to='images/')
-    img_sertifikat = models.ImageField(null=True, upload_to='images/')
+    img_ktp = models.ImageField(null=True, upload_to='ktp/')
+    img_kk = models.ImageField(null=True, upload_to='kk/')
+    img_rumah = models.ImageField(null=True, upload_to='rumah/')
+    img_sertifikat = models.ImageField(null=True, upload_to='sertifikat/')
 
     def __str__(self):
         return f"Permohonan dari {self.nama_kk.nama_kk}"
@@ -67,7 +67,8 @@ class data_rtlh(models.Model):
     sumber_airbersih = models.CharField(max_length=300)
     sumber_listrik = models.CharField(max_length=300)
     kriteria = models.ForeignKey(data_kriteria, on_delete=models.SET_NULL, null=True, related_name='rtlh_kriteria')
-    img_rumah = models.ImageField(null=True, upload_to='images/')
+    img_rumah = models.ImageField(null=True, upload_to='rumah/')
+    tgl_input = models.DateField(null=True)
 
     def __str__(self):
         return f"Data RTLH {self.nama_kk.nama_kk}"
@@ -84,6 +85,7 @@ class verifikasi(models.Model):
 class informasi(models.Model):
     judul = models.CharField(max_length=300)
     deskripsi = models.CharField(null=True, max_length=300)
+    img_informasi = models.ImageField(null=True, upload_to='informasi/')
 
     def __str__(self):
         return self.judul
@@ -174,7 +176,7 @@ class Master_User(AbstractBaseUser):
 class undang_undang(models.Model):
     judul = models.CharField(max_length=300)
     deskripsi = models.CharField(null=True, max_length=300)
-    img_uu = models.ImageField(null=True, upload_to='media/')
+    img_uu = models.ImageField(null=True, upload_to='uu/')
 
     def __str__(self):
         return self.judul
@@ -182,7 +184,7 @@ class undang_undang(models.Model):
 class sekilas_info(models.Model):
     judul = models.CharField(max_length=300)
     deskripsi = models.CharField(null=True, max_length=300)
-    img_info = models.ImageField(null=True, upload_to='images/')
+    img_info = models.ImageField(null=True, upload_to='info/')
 
     def __str__(self):
         return self.judul
@@ -190,7 +192,7 @@ class sekilas_info(models.Model):
 class tips(models.Model):
     judul = models.CharField(max_length=300)
     deskripsi = models.CharField(null=True, max_length=300)
-    icon = models.ImageField(upload_to='icons/', null=True, blank=True)  # Field baru
+    icon = models.ImageField(upload_to='icons_tips/', null=True, blank=True)  # Field baru
 
     def __str__(self):
         return self.judul

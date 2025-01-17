@@ -24,6 +24,7 @@ class TambahInfoViews(View):
     def post(self, request):
         frm_judul = request.POST.get('judul')
         frm_deskripsi = request.POST.get('deskripsi')
+        frm_img_informasi = request.FILES.get('img_informasi')
         
         
         try:
@@ -31,6 +32,7 @@ class TambahInfoViews(View):
                 insert = informasi()
                 insert.judul = frm_judul
                 insert.deskripsi = frm_deskripsi
+                insert.img_informasi = frm_img_informasi
                 insert.save()
                 
                 messages.success(request, f"form {insert.judul} berhasil ditambahkan")
@@ -54,13 +56,14 @@ class EditInfoViews(View):
     def post(self, request):
         frm_judul = request.POST.get('judul')
         frm_deskripsi = request.POST.get('deskripsi')
-
+        frm_img_informasi = request.FILES.get('img_informasi')
         
         try:
             with transaction.atomic():
                 insert = informasi()
                 insert.judul = frm_judul
                 insert.deskripsi = frm_deskripsi
+                insert.img_informasi = frm_img_informasi
                 insert.save()
                 
                 messages.success(request, f"form {insert.judul} berhasil ditambahkan")
