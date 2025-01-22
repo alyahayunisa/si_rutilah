@@ -2,11 +2,12 @@ from .beranda import *
 from .daftar import *
 from .kriteria import *
 from .berita import *
-from .informasi import *
-from .kontak import *
+from .infortlh import *
+from .kontakrtlh import *
 from .kriteria_A import *
 from .kriteria_B import *
 from .kriteria_C import *
 from .kriteria_D import *
 from .kriteria_E import *
 from .kriteria_F import *
+from .infortlh_detail import *

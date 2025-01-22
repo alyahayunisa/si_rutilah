@@ -1,7 +1,6 @@
 {% load static %}
 {% include 'layouts2/navbar.html' %}
 
-<<<<<<< HEAD
 <style>
     .text-color-black {
         color: black !important;
@@ -57,270 +56,57 @@
         </div>
     </div>
 </section>
-
-=======
-
-<style>
-    .text-color-black {
-        color : black !important;
-    }
-</style>
-<section>
-    <div class="row text-center text-md-start py-2 header-section">
-        <div class="col p-relative bottom-5">
-            <ul class="breadcrumb d-block text-4 opacity-8 text-default mb-0">
-                <li><a href="{% url 'rtlh_app:beranda' %}" class="text-decoration-none text-default">Beranda</a></li>
-                <li class="active">Kriteria</li>
-            </ul>
-            <h1 class="font-weight-bold text-color-black text-10 mt-1 mb-0">Kriteria Rumah</h1>
-        </div>
-    </div>
-    </div>
-</section>
->>>>>>> dc7b024b08df127de8596e0b64115ea486349c4b
 <section class="section bg-transparent position-relative border-0 m-0 p-0">
     <div class="container custom-container-background custom-z-index-1 py-5">
-        <div class="row position-relative z-index-1 pt-5-5">
+        <div class="row position-relative z-index-1 pt-5">
             <div class="col">
                 <div class="row pt-4">
-<<<<<<< HEAD
-                    <!-- Tipe A -->
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember1" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe a.jpeg' %}" class="img-fluid" alt="Image of Tipe A" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                {% if data_tipe_a %}
-                                    <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">{{ data_tipe_a.kriteria }}</h4>
-                                    <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">
-                                        {{ data_tipe_a.desk_singkat }}
-                                    </h3>
-                                    <p class="text-color-black text-4 line-height-8 mb-3-5">{{ data_tipe_a.desk_detail }}</p>
-                                    <a href="{% url 'rtlh_app:detailA' %}" class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">
-                                        Selengkapnya
-                                    </a>
-                                {% else %}
-                                    <p>Tidak ada data kriteria yang tersedia.</p>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
+                    {% for dt_kri in data_kri %}
+                        <div class="col-md-6 mb-4">
+                            <div class="row align-items-center shadow-sm p-3 rounded bg-white">
+                                <!-- Bagian Gambar -->
+                                <div class="col-lg-5">
+                                    {% if dt_kri.img_tipe %}
+                                        <img src="{{ dt_kri.img_tipe.url }}" class="img-fluid rounded" alt="{{ dt_kri.kriteria }}">
+                                    {% else %}
+                                        <div class="placeholder-image d-flex align-items-center justify-content-center bg-light border rounded" style="height: 200px;">
+                                            <p class="text-muted">Gambar tidak tersedia</p>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <!-- Bagian Deskripsi -->
+                                <div class="col-lg-7">
+                                    <h5 class="text-dark font-weight-bold">{{ dt_kri.kriteria }}</h5>
+                                    <p class="text-muted mb-2"><strong>Deskripsi Singkat:</strong> {{ dt_kri.desk_singkat }}</p>
+                                    <p class="text-muted mb-2"><strong>Detail:</strong> {{ dt_kri.desk_detail }}</p>
 
-                    <!-- Tipe B -->
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember2" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe b.jpeg' %}" class="img-fluid" alt="Image of Tipe B" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                {% if data_tipe_b %}
-                                    <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">{{ data_tipe_b.kriteria }}</h4>
-                                    <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">
-                                        {{ data_tipe_b.desk_singkat }}
-                                    </h3>
-                                    <p class="text-color-black text-4 line-height-8 mb-3-5">{{ data_tipe_b.desk_detail }}</p>
-                                    <a href="{% url 'rtlh_app:detailB' %}" class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">
-                                        Selengkapnya
-                                    </a>
-                                {% else %}
-                                    <p>Tidak ada data kriteria yang tersedia.</p>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Tipe C -->
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember3" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe c.jpeg' %}" class="img-fluid" alt="Image of Tipe C" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                {% if data_tipe_c %}
-                                    <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">{{ data_tipe_c.kriteria }}</h4>
-                                    <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">
-                                        {{ data_tipe_c.desk_singkat }}
-                                    </h3>
-                                    <p class="text-color-black text-4 line-height-8 mb-3-5">{{ data_tipe_c.desk_detail }}</p>
-                                    <a href="{% url 'rtlh_app:detailC' %}" class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">
-                                        Selengkapnya
-                                    </a>
-                                {% else %}
-                                    <p>Tidak ada data kriteria yang tersedia.</p>
-                                {% endif %}
+                                    <!-- Link Dinamis berdasarkan kriteria -->
+                                    {% if dt_kri.kriteria == 'Tipe A' %}
+                                        <a href="{% url 'rtlh_app:detailA' %}" class="btn btn-primary btn-sm">Selengkapnya</a>
+                                    {% elif dt_kri.kriteria == 'Tipe B' %}
+                                        <a href="{% url 'rtlh_app:detailB' %}" class="btn btn-primary btn-sm">Selengkapnya</a>
+                                    {% elif dt_kri.kriteria == 'Tipe C' %}
+                                        <a href="{% url 'rtlh_app:detailC' %}" class="btn btn-primary btn-sm">Selengkapnya</a>
+                                    {% elif dt_kri.kriteria == 'Tipe D' %}
+                                        <a href="{% url 'rtlh_app:detailD' %}" class="btn btn-primary btn-sm">Selengkapnya</a>
+                                    {% elif dt_kri.kriteria == 'Tipe E' %}
+                                        <a href="{% url 'rtlh_app:detailE' %}" class="btn btn-primary btn-sm">Selengkapnya</a>
+                                    {% elif dt_kri.kriteria == 'Tipe F' %}
+                                        <a href="{% url 'rtlh_app:detailF' %}" class="btn btn-primary btn-sm">Selengkapnya</a>
+                                    {% else %}
+                                        <p class="text-danger">Tipe kriteria tidak valid</p>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Tipe D -->
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember4" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe d.jpeg' %}" class="img-fluid" alt="Image of Tipe D" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                {% if data_tipe_d %}
-                                    <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">{{ data_tipe_d.kriteria }}</h4>
-                                    <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">
-                                        {{ data_tipe_d.desk_singkat }}
-                                    </h3>
-                                    <p class="text-color-black text-4 line-height-8 mb-3-5">{{ data_tipe_d.desk_detail }}</p>
-                                    <a href="{% url 'rtlh_app:detailD' %}" class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">
-                                        Selengkapnya
-                                    </a>
-                                {% else %}
-                                    <p>Tidak ada data kriteria yang tersedia.</p>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tipe E -->
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember5" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe e.jpeg' %}" class="img-fluid" alt="Image of Tipe E" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                {% if data_tipe_e %}
-                                    <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">{{ data_tipe_e.kriteria }}</h4>
-                                    <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">
-                                        {{ data_tipe_e.desk_singkat }}
-                                    </h3>
-                                    <p class="text-color-black text-4 line-height-8 mb-3-5">{{ data_tipe_e.desk_detail }}</p>
-                                    <a href="{% url 'rtlh_app:detailE' %}" class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">
-                                        Selengkapnya
-                                    </a>
-                                {% else %}
-                                    <p>Tidak ada data kriteria yang tersedia.</p>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tipe F -->
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember6" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe f.jpeg' %}" class="img-fluid" alt="Image of Tipe F" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                {% if data_tipe_f %}
-                                    <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">{{ data_tipe_f.kriteria }}</h4>
-                                    <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">
-                                        {{ data_tipe_f.desk_singkat }}
-                                    </h3>
-                                    <p class="text-color-black text-4 line-height-8 mb-3-5">{{ data_tipe_f.desk_detail }}</p>
-                                    <a href="{% url 'rtlh_app:detailF' %}" class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">
-                                        Selengkapnya
-                                    </a>
-                                {% else %}
-                                    <p>Tidak ada data kriteria yang tersedia.</p>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-
-=======
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember1" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe a.jpeg' %}" class="img-fluid" alt="Image of the team member" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">TIPE A</h4>
-                                <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">Kerusakan 0%</h3>
-                                <p class="text-color-black text-4 line-height-8 mb-3-5">Sangat layak digunakan, Bahan bangunan sudah standar</p>
-                                <a href="{% url 'rtlh_app:detailA' %}"
-                                    class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember2" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe b.jpeg' %}" class="img-fluid" alt="Image of the team member" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">TIPE B</h4>
-                                <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">Kerusakan 10%</h3>
-                                <p class="text-color-black text-4 line-height-8 mb-3-5">Sangat layak digunakan, Bahan bangunan sudah standar</p>
-                                <a href="{% url 'rtlh_app:detailB' %}"
-                                    class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember3" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe c.jpeg' %}" class="img-fluid" alt="Image of the team member" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">TIPE C</h4>
-                                <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">Kerusakan 40%</h3>
-                                <p class="text-color-black text-4 line-height-8 mb-3-5">Kurang layak huni, </p>
-                                <a href="{% url 'rtlh_app:detailC' %}"
-                                    class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember4" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe d.jpeg' %}" class="img-fluid" alt="Image of the team member" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">TIPE D</h4>
-                                <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">Kerusakan 60%</h3>
-                                <p class="text-color-black text-4 line-height-8 mb-3-5">Kurang layak huni</p>
-                                <a href="{% url 'rtlh_app:detailD' %}"
-                                class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember4" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe e.jpeg' %}" class="img-fluid" alt="Image of the team member" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">TIPE E</h4>
-                                <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">Kerusakan 80%</h3>
-                                <p class="text-color-black text-4 line-height-8 mb-3-5">Tidak layak huni</p>
-                                <a href="demo-insurance-insurances-detail.html" class="text-decoration-none custom-link-hover-effects pb-5"></a>
-                                <a href="{% url 'rtlh_app:detailE' %}"
-                                    class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-9 col-md-6 mb-5-5">
-                        <div id="teamMember4" class="row align-items-center">
-                            <div class="col-lg-5 col-xl-6 pe-lg-0 mb-0">
-                                <img src="{% static 'assets/img/team/tipe f.jpeg' %}" class="img-fluid" alt="Image of the team member" />
-                            </div>
-                            <div class="col-lg-7 col-xl-6 ps-lg-4">
-                                <h4 class="text-color-black font-weight-bold line-height-1 text-6 mt-3 mb-2">TIPE F</h4>
-                                <h3 class="d-block text-color-default font-weight-semibold line-height-1 positive-ls-2 text-2 mb-3">Kerusakan 100%</h3>
-                                <p class="text-color-black text-4 line-height-8 mb-3-5">Tidak layak huni, Membahayakan penghuninya</p>
-                                <a href="{% url 'rtlh_app:detailF' %}"
-                                class="custom-view-more d-inline-flex font-weight-semibold text-color-primary">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
->>>>>>> dc7b024b08df127de8596e0b64115ea486349c4b
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<<<<<<< HEAD
-{% include 'layouts2/footer.html' %}
-=======
-
-</div>
 
 
 {% include 'layouts2/footer.html' %}
->>>>>>> dc7b024b08df127de8596e0b64115ea486349c4b

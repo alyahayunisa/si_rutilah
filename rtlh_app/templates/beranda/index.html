@@ -54,10 +54,111 @@
         font-size: 14px;
         color: #666;
     }
+    .icon-container img {
+        max-width: 80px;
+        margin-bottom: 15px;
+    }
+    .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .card h5 {
+        color: #003366;
+        font-weight: bold;
+    }
+    .card p {
+        color: #333333;
+    }
+    .section-title {
+        color: #003366;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+    .icon img {
+        max-width: 100%;
+        height: auto;
+    }
+    .bg-blue-navy {
+        background-color: #001f3f; /* Warna blue navy */
+        border-radius: 10px; /* Tambahkan sudut melengkung */
+        padding: 20px; /* Beri jarak di dalam kotak */
+    }
+    .bg-green {
+        background-color: #3ddc43c3; /* Hijau muda */
+        color: #000000; /* Hijau gelap untuk teks */
+    }
+    .bg-custom-yellow {
+        background-color: #f5e10186; /* Warna kuning kustom */
+        color: #212121; /* Warna teks yang cocok */
+    }
+
+    .bg-custom-yellow.text-dark {
+        color: #000; /* Warna teks lebih gelap */
+    }
+    .bg-blue-navy {
+        background-color: #0e0d6c; /* Warna navy untuk deskripsi */
+        color: #ffffff;           /* Warna teks putih */
+        border-radius: 10px;      /* Membulatkan sudut */
+        padding: 1.5rem;          /* Ruang di dalam elemen */
+    }
+
+    .text-8 {
+        font-size: 2rem;          /* Ukuran besar untuk judul */
+        font-weight: bold;        /* Membuat teks tebal */
+        color: #333;              /* Warna teks judul */
+        margin-bottom: 1rem;      /* Jarak bawah judul */
+    }
+
+    .text-4 {
+        font-size: 1.125rem;      /* Ukuran teks deskripsi */
+        line-height: 1.6;         /* Tinggi baris yang nyaman */
+    }
+
+    .line-height-6 {
+        line-height: 1.8;         /* Tambahan untuk line height */
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;             /* Gambar responsif */
+    }
+
+    .shadow {
+        box-shadow: 0 4px 15px rgb(42, 42, 43); /* Efek bayangan */
+    }
+    .bg-custom {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .bg-yellow {
+        background-color: #fcdf00; /* Warna navy untuk deskripsi */
+        color: #000000;           /* Warna teks putih */
+        border-radius: 10px;      /* Membulatkan sudut */
+        padding: 1.5rem;          /* Ruang di dalam elemen */
+    }
+    .cardkri {
+        background-color: #02bcdd; /* Warna latar kriteria rtlh */
+        border: 1px solid #e0e0e0; /* Border lembut untuk membedakan */
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .bg-light-green {
+        background-color: #4ce66d73; /* Hijau muda */
+        color: #000000; /* Hijau gelap untuk teks */
+    }
+    .bg-custom-blue {
+        background-color: #1cebd370; /* Warna kuning kustom */
+        color: #212121; /* Warna teks yang cocok */
+    }
+
 </style>
 <div role="main" class="main">
 
-    <section class="section position-relative border-0 m-0" style="background-image:url('static/assets/img/background/dogiyai.jpg') ; background-position: center; background-size: cover;">
+    <section class="section position-relative border-0 m-0" style="background-image:url({% static  'assets/img/background/papua.jpg'%}) ; background-position: center; background-size: cover;">
         <div class="container position-relative pb-5 mb-5">
             <svg class="d-none d-lg-block custom-svg-position-1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1686.88 1095.86" data-appear-animation-svg="true">
                 <path class="appear-animation" data-appear-animation="customLines1anim" data-appear-animation-delay="100" data-appear-animation-duration="7s" fill="none" stroke="#d8d8d8" stroke-width="2px" stroke-miterlimit="10" d="M87.95,1.4c6.82,9.14,15.53,21.59,24.68,36.94c6.82,11.45,27.18,46.82,42.55,96.51
@@ -142,123 +243,110 @@
     </section>
 
     <section class="section bg-transparent position-relative border-0 m-0 p-0">
-        <div class="container custom-container-background z-index-1 py-5">
-
+        <div class="container">
             <!-- Bagian Peraturan Undang-Undang -->
-            <div class="row align-items-center pb-5 pb-lg-0 mb-5 mb-lg-0">
-                <div class="col-lg-5 text-center text-lg-start appear-animation" data-appear-animation="fadeInRightShorterPlus" data-appear-animation-delay="100">
-                    <img src="{% static 'assets/img/demos/insurance/generic/undang-undang.jpeg' %}" class="img-fluid mb-4 mb-lg-0" alt="" />
-                </div>
-                <div class="col-lg-6 text-center text-lg-start appear-animation" data-appear-animation="fadeInRightShorterPlus" data-appear-animation-delay="100">
-                    <h2 class="text-color-black font-weight-medium text-8 mb-4-5 justify-text">Peraturan <strong>Undang - undang</strong></h2>
-                    <p class="text-color-white justify-text text-3-5 line-height-8 mb-4 blue-background">Peraturan terbaru yang relevan terkait klasifikasi rumah layak huni di Indonesia mencakup Peraturan Menteri Sosial Nomor 6 Tahun 2021, yang merupakan perubahan atas Peraturan Menteri Sosial Nomor 20 Tahun 2017. Peraturan ini fokus pada rehabilitasi sosial untuk rumah tidak layak huni (RTLH) dan pengembangan sarana prasarana lingkungan. Regulasi ini bertujuan untuk memastikan bahwa masyarakat berpenghasilan rendah (MBR) mendapatkan akses ke perumahan yang layak dan sehat. </p>
-                </div>
-            </div>        
-            
-            
-            <!-- Bagian Sekilas Informasi -->
-            <div class="row align-items-center pt-1 my-5">
-                <div class="col-lg-6 text-center text-lg-start order-2 order-lg-1 appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="100">
-                    <h2 class="text-color-black font-weight-medium text-8 mb-4-5">Sekilas <strong>Informasi</strong></h2>
-                    <p class="text-color-black justify-text text-3-5 line-height-8 mb-4 yellow-background">Program Rumah Layak Huni dan Rumah Tidak Layak Huni (RTLH) adalah inisiatif pemerintah untuk meningkatkan kualitas perumahan masyarakat berpenghasilan rendah. Program RTLH fokus pada perbaikan atau pembangunan rumah yang tidak memenuhi standar kesehatan dan keselamatan. Sedangkan, Program Rumah Layak Huni bertujuan menyediakan akses perumahan yang aman, sehat, dan nyaman bagi masyarakat, dengan bantuan subsidi, kredit, atau rumah murah. Keduanya bertujuan mengurangi kemiskinan dan meningkatkan kualitas hidup. </p>
-                </div>
-                <div class="col-lg-5 text-center text-lg-end order-1 order-lg-2">
-                    <img src="{% static 'assets/img/demos/insurance/generic/5138438.jpg' %}" class="img-fluid mb-4 mb-lg-0 appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="100" alt="" />
-                </div>
+            <div class="container-fluid my-5 px-4">
+                {% for dt_undang in data_undang %}
+                    <div class="row align-items-center mb-5 shadow-sm bg-light rounded py-4">
+                        <!-- Gambar di Kiri -->
+                        <div class="col-lg-4 text-center">
+                            {% if dt_undang.img_uu %}
+                                <img src="{{ dt_undang.img_uu.url }}" 
+                                     alt="Gambar Undang-Undang {{ dt_undang.judul }}" 
+                                     class="img-fluid rounded shadow">
+                            {% else %}
+                                <img src="{% static 'assets/img/default-placeholder.png' %}" 
+                                     alt="Gambar tidak tersedia" 
+                                     class="img-fluid rounded shadow">
+                            {% endif %}
+                        </div>
+    
+                        <!-- Konten di Kanan -->
+                        <div class="col-lg-8">
+                            <!-- Judul -->
+                            <h2 class="font-weight-bold text-8 mb-3">{{ dt_undang.judul|default:"Judul tidak tersedia" }}</h2>
+                            
+                            <!-- Deskripsi -->
+                            <div class="text-justify p-4 bg-blue-navy text-white rounded">
+                                <p class="text-4 line-height-6 mb-0">
+                                    {{ dt_undang.deskripsi|truncatewords:50|default:"Deskripsi belum tersedia" }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="row align-items-center mb-5">
+                        <div class="col text-center">
+                            <p class="text-muted">Tidak ada data yang tersedia.</p>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
+            
+            <!-- Bagian Sekilas Info -->
+            <div class="container-fluid my-5 px-4">
+                {% for dt_sekilas in data_sekilas %}
+                    <div class="row align-items-center mb-5 shadow-sm bg-light rounded py-4">
+                        <!-- Konten di Kiri -->
+                        <div class="col-lg-8">
+                            <!-- Judul -->
+                            <h2 class="font-weight-bold text-8 mb-3">{{ dt_sekilas.judul|default:"Judul tidak tersedia" }}</h2>
+                            
+                            <!-- Deskripsi -->
+                            <div class="text-justify p-4 bg-yellow text-color-black rounded">
+                                <p class="text-4 line-height-6 mb-0">
+                                    {{ dt_sekilas.deskripsi|truncatewords:50|default:"Deskripsi belum tersedia" }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Gambar di Kanan -->
+                        <div class="col-lg-4 text-center">
+                            {% if dt_sekilas.img_info %}
+                                <img src="{{ dt_sekilas.img_info.url }}" 
+                                    alt="Sekilas info {{ dt_sekilas.judul }}" 
+                                    class="img-fluid rounded shadow">
+                            {% else %}
+                                <img src="{% static 'assets/img/default-placeholder.png' %}" 
+                                    alt="Gambar tidak tersedia" 
+                                    class="img-fluid rounded shadow">
+                            {% endif %}
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="row align-items-center mb-5">
+                        <div class="col text-center">
+                            <p class="text-muted">Tidak ada data yang tersedia.</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
         </div>
     </section>
 
     <section class="section section-height-3 border-0 m-0">
-        <div class="container pb-3">
+        <div class="container my-5">
+            <h1 class="section-title">Kriteria Rumah Tidak Layak Huni</h1>
             <div class="row">
-                <div class="col text-center">
-                    <h2 class="text-color-black font-weight-medium text-8 mb-5 appear-animation" 
-                        data-appear-animation="fadeInUpShorterPlus" 
-                        data-appear-animation-delay="100">
-                        <strong>Kriteria Rumah Tidak Layak Huni</strong>
-                    </h2>
-                </div>
+                {% for item in data_krirtlh %}
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="cardkri p-4 h-100 shadow-sm text-center appear-animation {% cycle 'bg-light-green text-dark' 'bg-custom-blue text-dark' %}" data-appear-animation="fadeInUp">
+                            <div class="icon-container">
+                                {% if item.icon %}
+                                    <img src="{{ item.icon.url }}" alt="Icon {{ item.judul }}" class="img-fluid" style="width: 90px; height: 90px;">
+                                {% else %}
+                                    <img src="{% static 'assets/img/default-placeholder.png' %}" alt="Icon Default" class="img-fluid">
+                                {% endif %}
+                            </div>
+                            <h5>{{ item.judul }}</h5>
+                            <p>{{ item.deskripsi}}</p>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="text-center">Tidak ada data kriteria tersedia.</p>
+                {% endfor %}
             </div>
-        </div>
-        <div class="row justify-content-center position-relative gy-5 z-index-1">
-            
-            <!-- Kriteria 1: Kondisi Struktur Bangunan -->
-            <div class="col-md-2 col-lg-5 text-center appear-animation" 
-                 data-appear-animation="fadeInRightShorterPlus" 
-                 data-appear-animation-delay="100">
-                <div class="tip-card">
-                    <img width="90" height="90" src="{% static 'assets/img/demos/insurance/icons/casa.svg' %}" alt="" 
-                         data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-primary mb-3'}" />
-                    <h3 class="text-color-black font-weight-bold text-transform-none text-5 mb-4-5">Kondisi Struktur Bangunan</h3>
-                    <ul class="text-color-black text-2-4 text-start text-justify">
-                        <li><strong>Fondasi:</strong> Fondasi rumah tidak kokoh, terancam ambruk, atau mengalami keretakan.</li>
-                        <li><strong>Dinding:</strong> Dinding rumah terbuat dari bahan yang tidak permanen atau tidak tahan lama.</li>
-                        <li><strong>Atap:</strong> Atap bocor, terbuat dari bahan yang tidak layak seperti daun rumbia, genteng rusak, atau seng berkarat.</li>
-                        <li><strong>Lantai:</strong> Lantai tanah, atau material lain yang tidak memenuhi standar kesehatan dan keamanan.</li>
-                    </ul>
-                </div>
-            </div>
-    
-            <!-- Kriteria 2: Ketersediaan Ruang -->
-            <div class="col-md-14 col-lg-5 text-center appear-animation" 
-                 data-appear-animation="fadeInLeftShorterPlus" 
-                 data-appear-animation-delay="100">
-                <div class="tip-card">
-                    <img width="90" height="90" src="{% static 'assets/img/demos/insurance/icons/travel-case.svg' %}" alt="" 
-                         data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-primary mb-3'}" />
-                    <h3 class="text-color-black font-weight-bold text-transform-none text-5 mb-4-5">Ketersediaan Ruang</h3>
-                    <ul class="text-color-black text-3-5 text-start text-justify">
-                        <li><strong>Kependudukan:</strong> Rumah memiliki ruang yang tidak memadai untuk jumlah penghuninya, sehingga menyebabkan kepadatan yang tinggi.</li>
-                        <li><strong>Ruang Tidur:</strong> Tidak ada pemisahan antara ruang tidur dan ruang lainnya, atau ruang tidur tidak layak digunakan.</li>
-                    </ul>
-                </div>
-            </div>
-    
-            <!-- Kriteria 3: Fasilitas Dasar -->
-            <div class="col-md-8 col-lg-5 text-center appear-animation" 
-                 data-appear-animation="fadeInRightShorterPlus" 
-                 data-appear-animation-delay="100">
-                <div class="tip-card">
-                    <img width="90" height="90" src="{% static 'assets/img/demos/insurance/icons/hearts.svg' %}" alt="" 
-                         data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-primary mb-3'}" />
-                    <h3 class="text-color-black font-weight-bold text-transform-none text-5 mb-4-5">Fasilitas Dasar</h3>
-                    <ul class="text-color-black text-3-5 text-start text-justify">
-                        <li><strong>Air Bersih:</strong> Tidak ada akses yang memadai terhadap air bersih atau sanitasi.</li>
-                        <li><strong>Listrik:</strong> Rumah tidak memiliki akses listrik atau instalasi listrik yang ada sangat tidak aman.</li>
-                        <li><strong>Toilet:</strong> Tidak ada fasilitas toilet yang memadai, atau toilet sangat tidak layak.</li>
-                    </ul>
-                </div>
-            </div>
-    
-            <!-- Kriteria 4: Lingkungan -->
-            <div class="col-md-9 col-lg-5 text-center appear-animation" 
-                 data-appear-animation="fadeInLeftShorterPlus" 
-                 data-appear-animation-delay="100">
-                <div class="tip-card">
-                    <img width="90" height="90" src="{% static 'assets/img/demos/insurance/icons/lingkungan.png' %}" alt="" 
-                         data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-primary mb-3'}" />
-                    <h3 class="text-color-black font-weight-bold text-transform-none text-5 mb-4-5">Lingkungan</h3>
-                    <ul class="text-color-black text-3-5 text-start text-justify">
-                        <li><strong>Lokasi:</strong> Rumah berada di lokasi yang berisiko tinggi, seperti daerah rawan banjir, longsor, atau daerah terpencil tanpa akses ke infrastruktur dasar.</li>
-                        <li><strong>Kebersihan:</strong> Lingkungan rumah tidak sehat, misalnya dekat dengan tempat pembuangan sampah atau genangan air yang bisa menjadi sarang penyakit.</li>
-                    </ul>
-                </div>
-            </div>
-    
-            <!-- Kriteria 5: Keamanan dan Keselamatan -->
-            <div class="col-md-9 col-lg-6 text-center appear-animation" 
-                 data-appear-animation="fadeInRightShorterPlus" 
-                 data-appear-animation-delay="100">
-                <div class="tip-card">
-                    <img width="90" height="90" src="{% static 'assets/img/demos/insurance/icons/alloy-wheel.svg' %}" alt="" 
-                         data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-primary mb-3'}" />
-                    <h3 class="text-color-black font-weight-bold text-transform-none text-5 mb-4-5">Keamanan dan Keselamatan</h3>
-                    <ul class="text-color-black text-3-5 text-start text-justify">
-                        <li><strong>Bangunan:</strong> Kondisi bangunan tidak memenuhi standar keamanan sehingga berisiko tinggi bagi penghuni, misalnya mudah roboh atau rentan kebakaran.</li>
-                    </ul>
-                </div>
-            </div>      
         </div>
     </section>
     
@@ -272,97 +360,103 @@
                                 <h2 class="text-color-black font-weight-medium text-8 mb-5 appear-animation" data-appear-animation="fadeInUpShorterPlus" data-appear-animation-delay="100"><strong> Jumlah Data</strong></h2>
                             </div>
                         </div>
-                        <div class="row counters text-dark ps-lg-4">
-                            <div class="col-md-3 mb-5-5">
-                                <div class="counter text-center text-sm-start">
-                                    <strong class="text-color-primary text-13 line-height-5" data-to="35" data-append="+" data-plugin-options="{'speed': 5000}">0</strong>
-                                    <label class="font-weight-semibold text-5">Penduduk</label>
+                        <div class="container mt-5">
+                            <div class="row">
+                                <!-- Total Pemilik Rumah -->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card shadow-sm border-0">
+                                        <div class="card-body text-center">
+                                            <h6 class="font-weight-semibold text-5">Total Pemilik Rumah</h6>
+                                            <h3 class="font-weight-bold text-primary">{{ total_pemilik }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Total Data Permohonan -->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card shadow-sm border-0">
+                                        <div class="card-body text-center">
+                                            <h6 class="font-weight-semibold text-5">Total Data Permohonan</h6>
+                                            <h3 class="font-weight-bold text-primary">{{ total_permohonan }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Total Data Verifikasi -->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card shadow-sm border-0">
+                                        <div class="card-body text-center">
+                                            <h6 class="font-weight-semibold text-5">Total Data Verifikasi</h6>
+                                            <h3 class="font-weight-bold text-primary">{{ total_verifikasi }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Total Data Verifikasi Proses -->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card shadow-sm border-0">
+                                        <div class="card-body text-center">
+                                            <h6 class="font-weight-semibold text-5">Total Data Verifikasi Proses</h6>
+                                            <h3 class="font-weight-bold text-primary">{{ total_proses }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Total Data Verifikasi Disetujui -->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card shadow-sm border-0">
+                                        <div class="card-body text-center">
+                                            <h6 class="font-weight-semibold text-5">Total Data Verifikasi Disetujui</h6>
+                                            <h3 class="font-weight-bold text-primary">{{ total_disetujui }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Total Data Verifikasi Ditolak -->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card shadow-sm border-0">
+                                        <div class="card-body text-center">
+                                            <h6 class="font-weight-semibold text-5">Total Data Verifikasi Ditolak</h6>
+                                            <h3 class="font-weight-bold text-primary">{{ total_ditolak }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Total Data RTLH -->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card shadow-sm border-0">
+                                        <div class="card-body text-center">
+                                            <h6 class="font-weight-semibold text-5">Total Data RTLH</h6>
+                                            <h3 class="font-weight-bold text-primary">{{ total_RTLH }}</h3>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 mb-5-5">
-                                <div class="counter text-center text-sm-start">
-                                    <strong class="text-color-primary text-13 line-height-5" data-to="4000" data-append="+" data-plugin-options="{'speed': 5000}">0</strong>
-                                    <label class="font-weight-semibold text-5">Data RTLH</label>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-4 mb-sm-0">
-                                <div class="counter text-center text-sm-start">
-                                    <strong class="text-color-primary text-13 line-height-5" data-to="100" data-append="+" data-plugin-options="{'speed': 5000}">0</strong>
-                                    <label class="font-weight-semibold text-5">Rumah Penduduk</label>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="counter text-center text-sm-start">
-                                    <strong class="text-color-primary text-13 line-height-5" data-to="50" data-append="+" data-plugin-options="{'speed': 5000}">0</strong>
-                                    <label class="font-weight-semibold text-5">Penerima Bantuan</label>
-                                </div>
-                            </div>
-                        </div>
+                        </div>   
                     </div>
                 </div>
-            </div>
+            </div>     
         </section>
-            
-    <div class="row position-relative z-index-1 pt-5-5"></div>
-        <div class="col text-center">
-            <h2 class="text-color-black font-weight-medium text-8 mb-5-5"><strong> 6 Tips tentang Rumah</strong></h2>
+        
+    
+    <div class="container my-5">
+        <h2 class="text-center text-color-black font-weight-medium text-8 mb-5-5">
+            <strong>6 Tips tentang Rumah</strong>
+        </h2>
+        <div class="row">
+            {% for item in data_tips %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card p-4 h-100 shadow-sm text-center appear-animation {% cycle 'bg-green text-dark' 'bg-custom-yellow text-dark' %}" data-appear-animation="fadeInUp">
+                        <div class="icon mb-3">
+                            <img src="{{ item.icon.url }}" alt="Icon {{ item.judul }}" class="img-fluid" style="width: 90px; height: 90px;">
+                        </div>
+                        <h5 class="card-title font-weight-bold">{{ item.judul }}</h5>
+                        <p class="card-text">{{ item.deskripsi|truncatewords:25 }}</p>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-center">Tidak ada tips yang tersedia saat ini.</p>
+            {% endfor %}
         </div>
     </div>
-    <div class="row justify-content-center position-relative gy-5 z-index-1">
-        <!-- Tip 1 -->
-        <div class="col-md-4 col-lg-4 text-center appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="100">
-            <div class="tip-card">
-                <img width="90" height="90" src="{% static 'assets/img/demos/insurance/icons/stay-home.png' %}" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-secondary mb-4-5'}" />
-                <h3 class="text-color-black text-transform-none text-5-6 font-weight-semibold mb-3">Perawatan Rumah</h3>
-                <p class="text-color-black text-3-5 mb-0">Melakukan pemeriksaan berkala pada bagian tertentu seperti atap, saluran air, dan lantai untuk mencegah kerusakan besar.</p>
-            </div>
-        </div>
-
-        <!-- Tip 2 -->
-        <div class="col-md-9 col-lg-4 text-center appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="100">
-            <div class="tip-card">
-                <img width="90" height="90" src="{% static 'assets/img/demos/insurance/icons/idea.png' %}" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-stroke-color-primary mb-4-5'}" />
-                <h3 class="text-color-black text-transform-none text-5-6 font-weight-semibold mb-3">Efisiensi Energi</h3>
-                <p class="text-color-black text-3-5 mb-0">Gunakan peralatan hemat energi dan pencahayaan LED untuk mengurangi tagihan listrik bulanan Anda secara signifikan.</p>
-            </div>
-        </div>
-
-        <!-- Tip 3 -->
-        <div class="col-md-9 col-lg-4 text-center appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="100">
-            <div class="tip-card">
-                <img width="90" height="90" src="{% static 'assets/img/demos/insurance/icons/home-security.png' %}" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-stroke-color-secondary mb-4-5'}" />
-                <h3 class="text-color-black text-transform-none text-5-6 font-weight-semibold mb-3">Keamanan Rumah</h3>
-                <p class="text-color-black text-3-5 mb-0">Pasang sistem keamanan rumah seperti alarm atau CCTV untuk melindungi rumah dari pencurian atau kejadian yang tidak diinginkan.</p>
-            </div>
-        </div>
-
-        <!-- Tip 4 -->
-        <div class="col-md-9 col-lg-4 text-center appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="100">
-            <div class="tip-card">
-                <img width="90" height="90" src="{% static 'assets/img/demos/insurance/icons/home-plan.png' %}" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-secondary mb-4-5'}" />
-                <h3 class="text-color-black text-transform-none text-5-6 font-weight-semibold mb-3">Desain Minimalis</h3>
-                <p class="text-color-black text-3-5 mb-0">Pertimbangkan desain minimalis untuk rumah Anda. Selain terlihat modern, desain ini juga lebih mudah dirawat dan mengurangi kekacauan visual.</p>
-            </div>
-        </div>
-
-        <!-- Tip 5 -->
-        <div class="col-md-9 col-lg-4 text-center appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="100">
-            <div class="tip-card">
-                <img width="90" height="90" src="{% static 'assets/img/demos/insurance/icons/ecology.png' %}" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-stroke-color-primary mb-4-5'}" />
-                <h3 class="text-color-black text-transform-none text-5-6 font-weight-semibold mb-3">Tanaman Indoor</h3>
-                <p class="text-color-black text-3-5 mb-0">Tambahkan tanaman hias dalam rumah untuk meningkatkan kualitas udara dan memberikan suasana segar yang menenangkan.</p>
-            </div>
-        </div>
-
-        <!-- Tip 6 -->
-        <div class="col-md-9 col-lg-4 text-center appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="100">
-            <div class="tip-card">
-                <img width="90" height="90" src="{% static 'assets/img/demos/insurance/icons/ventilation.png' %}" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-stroke-color-secondary mb-4-5'}" />
-                <h3 class="text-color-black text-transform-none text-5-6 font-weight-semibold mb-3">Ventilasi Baik</h3>
-                <p class="text-color-black text-3-5 mb-0">Pastikan rumah memiliki ventilasi yang cukup untuk menjaga sirkulasi udara tetap baik dan mengurangi kelembaban berlebih di dalam ruangan.</p>
-            </div>
-        </div>
-    </div>
+    
+    
+    
+    
 
 
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% load static %}
 {% include 'layouts2/navbar.html' %}
 
@@ -44,51 +43,6 @@
                     <td>{{ dt_verif.tanggal_verifikasi }}</td>
                     <td>{{ dt_verif.status_pengajuan }}</td>
                     <td>{{ dt_verif.alasan }}</td>
-=======
-{% include 'layouts2/navbar.html' %}
-{% include 'layouts2/header.html' %}
-
-
-<div class="container">
-    <h2>Data RTLH</h2>
-    <form method="GET" action="">
-        <div class="input-group mb-3">
-            <input 
-                type="text" 
-                name="q" 
-                class="form-control" 
-                placeholder="Cari berdasarkan nama KK atau keterangan..."
-                value="{{ query|default:'' }}"> <!-- Menampilkan nilai pencarian -->
-            <button class="btn btn-primary" type="submit">Cari</button>
-        </div>
-    </form>
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nama KK</th>
-                    <th scope="col">Tanggal Verifikasi</th>
-                    <th scope="col">Status Verifikasi</th>
-                    <th scope="col">Alasan</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for dt_daftar in data_daftar %}
-                <tr>
-                    <th scope="row">{{ forloop.counter }}</th>
-                    <td>{{ dt_daftar.nama_kk }}</td>
-                    <td>{{ dt_daftar.keterangan }}</td>
-                    <td>{{ dt_daftar.kriteria }}</td>
-                    <td>
-                        <div class="d-flex">
-                            <a href="{% url 'rtlh_app:edit_daftar' dt_daftar.id %}" class="btn btn-warning mx-2">Edit</a>
-                            <a href="{% url 'rtlh_app:delete_daftar' dt_daftar.id %}" class="btn btn-danger">Hapus</a>
-                            <a href="{% url 'rtlh_app:detail' dt_daftar.id %}" class="btn btn-primary">Detail Data</a>
-                        </div>
-                    </td>
->>>>>>> dc7b024b08df127de8596e0b64115ea486349c4b
                 </tr>
                 {% empty %}
                 <tr>

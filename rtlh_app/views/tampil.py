@@ -1,8 +1,12 @@
 from django.shortcuts import render, get_object_or_404
-from rtlh_app.models import KontenPeraturan
+from rtlh_admin.models import undang_undang
 from django.views import View
 
+
 class TampilkanPeraturanViews(View):
-    def tampilkan_peraturan(request):
-        konten = get_object_or_404(KontenPeraturan, id=1)  # Ambil konten pertama
-        return render(request, 'peraturan.html', {'konten': konten})
+    def get(self,request):
+        data_undang = undang_undang.objects.all()
+        data = {
+            'data_undang' : data_undang
+        }
+        return render(request, 'beranda/index.html', data)

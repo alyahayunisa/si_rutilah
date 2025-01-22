@@ -34,20 +34,11 @@
     .bg-yellow {
         background-color: #ffc107; /* Kuning */
     }
-<<<<<<< HEAD
-=======
-    .section-container {
-        margin-bottom: 50px; /* Tambahkan jarak 50px, sesuaikan dengan kebutuhan */
-    }
->>>>>>> dc7b024b08df127de8596e0b64115ea486349c4b
     .footer {
         background-color: #002855;
         color: white;
         padding: 20px 0;
-<<<<<<< HEAD
-=======
         padding-top: 50px; /* Tambahkan jarak 50px di bagian atas footer */
->>>>>>> dc7b024b08df127de8596e0b64115ea486349c4b
     }
     .footer a {
         color: white;
@@ -58,8 +49,12 @@
         text-align: center;
         margin-top: 10px;
     }
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
 </style>
-<<<<<<< HEAD
 <section class="page-header page-header-modern section position-relative border-0 m-0" style="background-image: url(img/demos/insurance/backgrounds/background-3.jpg); background-position: center; background-size: cover;">
     <div class="container position-relative pb-5 mb-5">
         <div class="page-header-svg-container">
@@ -110,92 +105,51 @@
         </div>
     </div>
 </section>
-<section class="container mt-5">
-=======
 
-<section class="container mt-5 section-container">
->>>>>>> dc7b024b08df127de8596e0b64115ea486349c4b
-    <h2 class="text-color-black section-title text-center">Persyaratan Pengajuan Bantuan</h2>
+<section class="container mt-5">
+    <h2 class="text-center text-color-black section-title">Informasi Terkini</h2>
     <div class="row">
-        <div class="col-md-8 text-color-black text-start">
-            <div class="info-box">
-                <ul>
-                    <li>Surat Permohonan Bantuan</li>
-                    <li>Fotocopy Kartu Tanda Penduduk (KTP)</li>
-                    <li>Fotocopy Kartu Keluarga (KK)</li>
-                    <li>Surat Keterangan Tidak Mampu (SKTM)</li>
-                    <li>Fotocopy Sertifikat Tanah atau Bukti Kepemilikan Rumah</li>
-                    <li>Foto Kondisi Rumah</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <h4>Informasi</h4>
-            <div class="card">
+        <!-- Loop untuk data informasi -->
+        {% for info in data_info %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <!-- Menampilkan gambar -->
+                {% if info.img_informasi %}
+                <img 
+                    src="{{ info.img_informasi.url }}" 
+                    alt="Gambar {{ info.judul }}" 
+                    class="card-img-top img-fluid" 
+                    style="object-fit: cover; height: 200px;"
+                >
+                {% else %}
+                <img 
+                    src="{% static 'images/placeholder.jpg' %}" 
+                    alt="Placeholder" 
+                    class="card-img-top img-fluid" 
+                    style="object-fit: cover; height: 200px;"
+                >
+                {% endif %}
                 <div class="card-body">
-                    <input type="search" class="form-control" id="searchInput" onkeyup="searchList()" placeholder="Search...">
-                    <ul class="list-group list-group-flush mt-3" id="infoList">
-                        <li class="list-group-item">Berita terbaru tentang program RTLH</li>
-                        <li class="list-group-item">Proses pengajuan bantuan rumah</li>
-                        <li class="list-group-item">Tips rumah layak huni</li>
-                    </ul>
-                    <p class="no-result" id="noResult" style="display:none;">Tidak ada hasil yang cocok.</p>
+                    <!-- Menampilkan judul -->
+                    <h5 class="card-title font-weight-bold">{{ info.judul }}</h5>
+                    <!-- Menampilkan deskripsi -->
+                    <p class="card-text text-muted">
+                        {{ info.deskripsi|truncatechars:150 }}
+                    </p>
+                    <!-- Tombol -->
+                    <a href="{% url 'rtlh_app:infodetail' info.id %}" class="btn btn-primary">Baca Selengkapnya</a>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    <!-- Proses Alur Tahapannya -->
-    <div class="row mt-5">
-        <div class="col-lg-13 text-color-black text-start">
-            <h3>Proses Tahapan Alur Bantuan RTLH :</h3>
-            <div class="col-lg-5 text-center text-lg-start appear-animation" data-appear-animation="fadeInRightShorterPlus" data-appear-animation-delay="100">
-                <img src="{% static 'assets/img/demos/insurance/generic/Alur Tahapan1.png' %}" class="img-fluid mb-4 mb-lg-0" alt="" />
-            </div>
-            <div>
-                <ol class="list-group bg-yellow p-3">
-                    <ul>
-                        <li>Warga/Calon Penerima Bantuan harus melampirkan dokumen - dokumen sesuai dengan persyaratan yang ditentukan</li>
-                        <li>Warga/Calon penerima bantuan harus membawa atau mengumpulkan dokumen tersebut di kelurahan/ kecamatan daerah</li>
-                        <li>Dikelurahan/ kecamatan akan dilakukan pendataan terlebih dahulu oleh petugas yang sudah ditunjuk</li>
-                        <li>Setelah dilakukan pendataan jika data yang dikumpulkan ternyata tidak valid maka proses alurnya akan balik ke calon penerima bantuan diminta untuk melengkapi atau proses alurnya akan berhenti sampai di pendataan saja.</li>
-                        <li>Jika data tersebut valid maka pihak dari kelurahan/kecamatan akan melakukan proses selanjutnya yaitu pengajuan proposal ke dinas terkait</li>
-                        <li>pihak dinas menerima proposan pengajuan bantuan</li>
-                        <li>tim dari dinas melakukan verifikasi kondisi rumah dilapangan/ akan melakukan survey terlebih dahulu.</li>
-                        <li>pihak dinas akan melakukan rapat untuk menetapkan penerima bantuan, setelah itu pihak dinas akan mengeluarkan Surat Keputusan (SK) penerima bantuan.</li>
-                        <li>pihak dinas akan melakukan musyawarah bersama warga yang menerima bantuan untuk mendiskusikan material apa saja yang dibutuhkan</li>
-                        <li>pihak dinas melakukan pencairan bantuan berupa material yang dibutuhkan</li>
-                        <li>penerima bantuan mulai melakukan pembangunan/ renovasi</li>
-                        <li>selesai.</li>
-                    </ul>
-                </ol>
-            </div>
-        </div>
-    </div>
+
+    <!-- Pesan jika tidak ada data -->
+    {% if not data_info %}
+    <p class="text-center text-muted mt-4">Tidak ada informasi tersedia saat ini.</p>
+    {% endif %}
 </section>
-<script>
-    function searchList() {
-        // Ambil input pencarian
-        var input = document.getElementById('searchInput');
-        var filter = input.value.toLowerCase();
-        var ul = document.getElementById('infoList');
-        var li = ul.getElementsByTagName('li');
-    
-        // Looping melalui semua item daftar dan sembunyikan yang tidak sesuai dengan query pencarian
-        for (var i = 0; i < li.length; i++) {
-            var item = li[i].innerText.toLowerCase();
-            if (item.indexOf(filter) > -1) {
-                li[i].style.display = "";
-            } else {
-                li[i].style.display = "none";
-            }
-        }
-        // Jika tidak ada item yang cocok, tampilkan pesan "Tidak ada hasil"
-        if (!found) {
-            noResult.style.display = "block";
-        } else {
-            noResult.style.display = "none";
-        }
-    }
-</script>
+
+
 
 {% include 'layouts2/footer.html' %}

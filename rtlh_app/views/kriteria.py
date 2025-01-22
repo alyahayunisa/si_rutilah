@@ -7,6 +7,7 @@ from django.urls import reverse
 
 class KriteriaViews(View):
     def get(self, request):
+        data_kri = data_kriteria.objects.all()
         # Ambil data kriteria untuk masing-masing tipe
         data_tipe_a = data_kriteria.objects.filter(kriteria="Tipe A").first()
         data_tipe_b = data_kriteria.objects.filter(kriteria="Tipe B").first()
@@ -16,6 +17,7 @@ class KriteriaViews(View):
         data_tipe_f = data_kriteria.objects.filter(kriteria="Tipe F").first()
 
         data = {
+            'data_kri' : data_kri,
             'data_tipe_a': data_tipe_a,
             'data_tipe_b': data_tipe_b,
             'data_tipe_c': data_tipe_c,
