@@ -15,7 +15,8 @@ class VerifViews(View):
     
 class TambahVerifViews(View):
     def get(self, request):
-        data_daftar = data_rumah.objects.all()
+        nama_kk_terpakai = verifikasi.objects.values_list('nama_kk_id', flat=True)
+        data_daftar = data_rumah.objects.exclude(id__in=nama_kk_terpakai)
         data = {
             'data_daftar' : data_daftar
         }
@@ -30,6 +31,11 @@ class TambahVerifViews(View):
         print(frm_tanggal_verifikasi)
         print(frm_status_pengajuan)
         print(frm_alasan)
+        
+        
+        if verifikasi.objects.filter(nama_kk_id=frm_nama_kk).exists():
+            messages.error(request, "Nama KK sudah digunakan dalam permohonan sebelumnya.")
+            return redirect(reverse('rtlh_admin:bantuan'))
         
         try:
             with transaction.atomic():

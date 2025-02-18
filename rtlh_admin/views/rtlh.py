@@ -18,9 +18,10 @@ class RtlhViews(View):
     
 class TambahRtlhViews(View):
     def get(self, request):
-        data_daftar = data_rumah.objects.all()
         data_kri = data_kriteria.objects.all()
         data_rumahrtlh = data_rtlh.objects.all()
+        nama_kk_terpakai = data_rtlh.objects.values_list('nama_kk_id', flat=True)
+        data_daftar = data_rumah.objects.exclude(id__in=nama_kk_terpakai)
         data = {
             'data_daftar' : data_daftar,
             'data_kri' : data_kri,
@@ -49,6 +50,11 @@ class TambahRtlhViews(View):
         frm_tgl_input = request.POST.get('tgl_input')
         frmisi = data_rumah.objects.get(id=frm_nama_kk)
         print(frm_nama_kk)
+        
+        # Cek apakah nama_kk sudah ada dalam permohonan
+        if data_rtlh.objects.filter(nama_kk_id=frm_nama_kk).exists():
+            messages.error(request, "Nama KK sudah digunakan dalam permohonan sebelumnya.")
+            return redirect(reverse('rtlh_admin:bantuan'))
         
         try:
             with transaction.atomic():

@@ -17,7 +17,8 @@ class BantuanViews(View):
 class TambahBantuanViews(View):
     def get(self, request):
         data_permohonan = permohonan.objects.all()
-        data_daftar = data_rumah.objects.all()
+        nama_kk_terpakai = permohonan.objects.values_list('nama_kk_id', flat=True)
+        data_daftar = data_rumah.objects.exclude(id__in=nama_kk_terpakai)
         data = {
             'data_daftar' : data_daftar,
             'data_permohonan' : data_permohonan
@@ -32,6 +33,11 @@ class TambahBantuanViews(View):
         frm_img_sertifikat = request.FILES.get('img_sertifikat')
         frmisi = data_rumah.objects.get(id=frm_nama_kk)
         print(frm_nama_kk)
+        
+        # Cek apakah nama_kk sudah ada dalam permohonan
+        if permohonan.objects.filter(nama_kk_id=frm_nama_kk).exists():
+            messages.error(request, "Nama KK sudah digunakan dalam permohonan sebelumnya.")
+            return redirect(reverse('rtlh_admin:bantuan'))
         
         try:
             with transaction.atomic():
